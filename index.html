@@ -1,0 +1,1669 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#FCF8F1">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23EFCB8B'/%3E%3Ctext x='32' y='46' font-family='Georgia,serif' font-size='38' fill='%234A3324' text-anchor='middle'%3EV%3C/text%3E%3C/svg%3E">
+<meta name="description" content="VocaBoost is a warm, calm place to meet a new word every day, collect a few more, and keep everything you learn.">
+<title>VocaBoost · Home</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --sand-50: #FCF8F1;
+    --sand-100: #F7EFE3;
+    --sand-200: #EFE2D0;
+    --sand-300: #E3D2BC;
+
+    --honey-100: #F7E4B8;
+    --honey-200: #F0CE8E;
+    --honey-300: #E3B265;
+    --honey-400: #CF9A47;
+
+    --cream: #FFFCF6;
+    --cocoa-900: #3F2C22;
+    --cocoa-800: #4E372B;
+    --cocoa-700: #5F4536;
+    --cocoa-500: #7C6151;
+    --cocoa-400: #826A5A;
+
+    --line: rgba(94, 68, 50, 0.12);
+    --line-soft: rgba(94, 68, 50, 0.08);
+
+    --shadow-sm: 0 1px 2px rgba(63, 44, 34, 0.04), 0 10px 24px -20px rgba(63, 44, 34, 0.4);
+    --shadow-md: 0 2px 4px rgba(63, 44, 34, 0.03), 0 30px 60px -42px rgba(63, 44, 34, 0.55);
+
+    --font-display: "Fraunces", "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+    --font-ui: "Inter", ui-sans-serif, "Segoe UI", system-ui, -apple-system, sans-serif;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; }
+  [hidden] { display: none !important; }
+
+  html { -webkit-text-size-adjust: 100%; }
+
+  body {
+    margin: 0;
+    min-height: 100vh;
+    font-family: var(--font-ui);
+    font-size: 16px;
+    line-height: 1.55;
+    color: var(--cocoa-800);
+    background-color: var(--sand-50);
+    background-image:
+      radial-gradient(1200px 720px at 8% -12%, #FBEFDD 0%, rgba(251, 239, 221, 0) 62%),
+      radial-gradient(960px 640px at 102% -4%, #F8E8CC 0%, rgba(248, 232, 204, 0) 58%),
+      radial-gradient(900px 620px at 48% 116%, #F4E5CF 0%, rgba(244, 229, 207, 0) 64%);
+    background-attachment: fixed;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  ::selection { background: rgba(240, 206, 142, 0.55); color: var(--cocoa-900); }
+
+  .sr-only {
+    position: absolute; width: 1px; height: 1px;
+    padding: 0; margin: -1px; overflow: hidden;
+    clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+  }
+
+  /* ---------- Header & navigation ---------- */
+
+  .topbar {
+    position: sticky;
+    top: 0;
+    z-index: 40;
+    background: rgba(252, 248, 241, 0.82);
+    -webkit-backdrop-filter: blur(16px) saturate(130%);
+    backdrop-filter: blur(16px) saturate(130%);
+    border-bottom: 1px solid var(--line-soft);
+  }
+
+  .topbar-inner {
+    max-width: 940px;
+    margin: 0 auto;
+    padding: 13px 22px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+  }
+
+  .brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 11px;
+    text-decoration: none;
+    color: inherit;
+    border-radius: 14px;
+  }
+
+  .brand:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 4px rgba(227, 178, 101, 0.32);
+  }
+
+  .brand-mark {
+    width: 40px;
+    height: 40px;
+    flex: none;
+    display: grid;
+    place-items: center;
+    border-radius: 13px;
+    font-family: var(--font-display);
+    font-size: 21px;
+    font-weight: 600;
+    color: #4A3324;
+    background: linear-gradient(150deg, #FBE9C6, #EFCB8B);
+    border: 1px solid rgba(150, 110, 60, 0.22);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.7), 0 10px 18px -14px rgba(120, 85, 45, 0.9);
+  }
+
+  .brand-name {
+    font-family: var(--font-display);
+    font-size: 19px;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    color: var(--cocoa-900);
+  }
+
+  .nav {
+    display: flex;
+    gap: 4px;
+    padding: 5px;
+    border-radius: 999px;
+    background: rgba(94, 68, 50, 0.07);
+    border: 1px solid rgba(94, 68, 50, 0.05);
+  }
+
+  .nav-btn {
+    appearance: none;
+    border: 0;
+    background: transparent;
+    font: inherit;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--cocoa-500);
+    padding: 9px 16px;
+    border-radius: 999px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition: color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .nav-btn:hover { color: var(--cocoa-900); background: rgba(255, 252, 246, 0.6); }
+
+  .nav-btn:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(227, 178, 101, 0.45);
+  }
+
+  .nav-btn[aria-current="page"] {
+    background: var(--cream);
+    color: var(--cocoa-900);
+    box-shadow: 0 1px 2px rgba(63, 44, 34, 0.06), 0 8px 16px -14px rgba(63, 44, 34, 0.6);
+  }
+
+  .nav-icon { display: none; }
+
+  /* ---------- Layout ---------- */
+
+  main {
+    max-width: 940px;
+    margin: 0 auto;
+    padding: 38px 22px 80px;
+  }
+
+  .view { animation: viewIn 0.45s cubic-bezier(0.22, 0.8, 0.3, 1) both; }
+
+  @keyframes viewIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: none; }
+  }
+
+  .view-header { margin-bottom: 4px; }
+
+  .eyebrow {
+    margin: 0 0 8px;
+    font-size: 11.5px;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--cocoa-400);
+  }
+
+  .view-title {
+    margin: 0;
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: clamp(28px, 4vw, 36px);
+    line-height: 1.14;
+    letter-spacing: -0.02em;
+    color: var(--cocoa-900);
+  }
+
+  .view-sub {
+    margin: 9px 0 0;
+    max-width: 52ch;
+    font-size: 15px;
+    color: var(--cocoa-500);
+  }
+
+  /* ---------- Word of the day card ---------- */
+
+  .word-card {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    margin-top: 22px;
+    padding: clamp(24px, 4vw, 38px);
+    border-radius: 30px;
+    background: linear-gradient(158deg, #FFFCF6 0%, #FBF0DC 58%, #F7E6C7 100%);
+    border: 1px solid rgba(176, 136, 86, 0.24);
+    box-shadow: var(--shadow-md);
+  }
+
+  .word-card::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top: -120px;
+    right: -100px;
+    width: 340px;
+    height: 340px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 35% 35%, rgba(240, 205, 140, 0.62), rgba(240, 205, 140, 0) 70%);
+  }
+
+  .word-card::after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    bottom: -140px;
+    left: -100px;
+    width: 320px;
+    height: 320px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 50% 50%, rgba(232, 210, 178, 0.6), rgba(232, 210, 178, 0) 72%);
+  }
+
+  .card-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+
+  .tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #8A6437;
+  }
+
+  .tag::before {
+    content: "";
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: linear-gradient(140deg, #E9C078, #CF9A47);
+    box-shadow: 0 0 0 4px rgba(226, 186, 116, 0.22);
+  }
+
+  .chip {
+    display: inline-block;
+    padding: 4px 11px;
+    border-radius: 999px;
+    background: rgba(255, 252, 246, 0.72);
+    border: 1px solid rgba(150, 115, 75, 0.24);
+    font-size: 12px;
+    font-weight: 500;
+    font-style: italic;
+    color: var(--cocoa-700);
+  }
+
+  .word {
+    margin: 20px 0 0;
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: clamp(38px, 8vw, 62px);
+    line-height: 1.02;
+    letter-spacing: -0.025em;
+    color: var(--cocoa-900);
+    overflow-wrap: anywhere;
+  }
+
+  .meaning-label {
+    margin: 24px 0 5px;
+    font-size: 10.5px;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--cocoa-400);
+  }
+
+  .meaning {
+    margin: 0;
+    max-width: 54ch;
+    font-size: clamp(17px, 2.1vw, 19px);
+    line-height: 1.6;
+    color: var(--cocoa-800);
+  }
+
+  .example {
+    margin: 18px 0 0;
+    padding-left: 16px;
+    max-width: 52ch;
+    border-left: 2px solid rgba(207, 154, 71, 0.55);
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: 15.5px;
+    line-height: 1.6;
+    color: var(--cocoa-500);
+  }
+
+  /* ---------- Panels ---------- */
+
+  .panel {
+    margin-top: 24px;
+    padding: clamp(20px, 3.4vw, 30px);
+    border-radius: 26px;
+    background: rgba(255, 252, 246, 0.78);
+    border: 1px solid rgba(94, 68, 50, 0.1);
+    box-shadow: var(--shadow-sm);
+    -webkit-backdrop-filter: blur(6px);
+    backdrop-filter: blur(6px);
+  }
+
+  .panel-head {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 18px;
+    flex-wrap: wrap;
+  }
+
+  .panel h2 {
+    margin: 0;
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: clamp(20px, 2.6vw, 24px);
+    letter-spacing: -0.015em;
+    color: var(--cocoa-900);
+  }
+
+  .panel-sub {
+    margin: 7px 0 0;
+    max-width: 46ch;
+    font-size: 14.5px;
+    color: var(--cocoa-500);
+  }
+
+  .progress {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 14px;
+    border-radius: 999px;
+    background: rgba(239, 226, 208, 0.6);
+    border: 1px solid rgba(150, 115, 75, 0.16);
+  }
+
+  .dots { display: flex; gap: 5px; }
+
+  .dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: rgba(94, 68, 50, 0.15);
+    transition: background 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .dot.is-filled {
+    background: linear-gradient(140deg, #EBC57F, #CF9A47);
+    box-shadow: 0 1px 3px rgba(160, 115, 50, 0.45);
+  }
+
+  .progress-text {
+    font-size: 12.5px;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    color: var(--cocoa-700);
+    white-space: nowrap;
+  }
+
+  /* ---------- Word lists ---------- */
+
+  .word-list {
+    list-style: none;
+    margin: 18px 0 0;
+    padding: 0;
+    display: grid;
+    gap: 10px;
+  }
+
+  .word-list:empty { display: none; }
+
+  .word-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 13px;
+    padding: 14px 16px;
+    border-radius: 18px;
+    background: linear-gradient(180deg, rgba(255, 253, 248, 0.92), rgba(250, 243, 232, 0.72));
+    border: 1px solid rgba(94, 68, 50, 0.09);
+  }
+
+  .word-item.is-new { animation: riseIn 0.45s cubic-bezier(0.2, 0.8, 0.3, 1) both; }
+
+  @keyframes riseIn {
+    from { opacity: 0; transform: translateY(8px) scale(0.985); }
+    to { opacity: 1; transform: none; }
+  }
+
+  .index-badge {
+    flex: none;
+    width: 27px;
+    height: 27px;
+    margin-top: 2px;
+    display: grid;
+    place-items: center;
+    border-radius: 9px;
+    font-size: 11.5px;
+    font-weight: 600;
+    color: #7C5A2E;
+    background: linear-gradient(150deg, #FBF0D6, #F1D9A9);
+    border: 1px solid rgba(170, 130, 75, 0.22);
+  }
+
+  .item-body { min-width: 0; flex: 1; }
+
+  .item-top {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    flex-wrap: wrap;
+  }
+
+  .item-word {
+    margin: 0;
+    font-family: var(--font-display);
+    font-size: 18px;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    color: var(--cocoa-900);
+    overflow-wrap: anywhere;
+  }
+
+  .item-meaning {
+    margin: 3px 0 0;
+    font-size: 14.3px;
+    line-height: 1.5;
+    color: var(--cocoa-500);
+  }
+
+  .item-meaning.is-muted { font-style: italic; color: var(--cocoa-400); }
+
+  .src-tag {
+    margin-left: auto;
+    font-size: 10.5px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--cocoa-400);
+    white-space: nowrap;
+  }
+
+  .panel-foot {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+    margin-top: 18px;
+  }
+
+  .hint {
+    margin: 0;
+    font-size: 13px;
+    color: var(--cocoa-500);
+  }
+
+  .hint.is-full { color: #8A6437; font-weight: 500; }
+
+  .empty-line {
+    margin: 16px 0 0;
+    padding: 17px 18px;
+    border-radius: 16px;
+    border: 1px dashed rgba(94, 68, 50, 0.2);
+    background: rgba(247, 239, 227, 0.4);
+    text-align: center;
+    font-size: 14px;
+    color: var(--cocoa-400);
+  }
+
+  /* ---------- Buttons & inputs ---------- */
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    height: 46px;
+    padding: 0 20px;
+    border-radius: 999px;
+    border: 1px solid transparent;
+    font: inherit;
+    font-size: 14.5px;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+    white-space: nowrap;
+    cursor: pointer;
+    transition: transform 0.18s ease, box-shadow 0.22s ease, background 0.22s ease, color 0.22s ease, border-color 0.22s ease;
+  }
+
+  .btn svg { width: 16px; height: 16px; flex: none; }
+
+  .btn:active:not(:disabled) { transform: translateY(1px); }
+
+  .btn:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 4px rgba(227, 178, 101, 0.38);
+  }
+
+  .btn-primary {
+    background: linear-gradient(180deg, #5C4335 0%, #463127 100%);
+    color: #FFF9F0;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.14), 0 14px 26px -20px rgba(63, 44, 34, 0.95);
+  }
+
+  .btn-primary:hover:not(:disabled) {
+    background: linear-gradient(180deg, #6A4E3D 0%, #4E372B 100%);
+    transform: translateY(-1px);
+  }
+
+  .btn-honey {
+    background: linear-gradient(180deg, #F7E1B3 0%, #EAC687 100%);
+    border-color: rgba(150, 110, 60, 0.26);
+    color: #4A3324;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.6), 0 12px 24px -20px rgba(140, 100, 45, 0.95);
+  }
+
+  .btn-honey:hover:not(:disabled) {
+    background: linear-gradient(180deg, #F9E8C4 0%, #EDCD92 100%);
+    transform: translateY(-1px);
+  }
+
+  .btn-ghost {
+    background: rgba(255, 252, 246, 0.7);
+    border-color: rgba(94, 68, 50, 0.16);
+    color: var(--cocoa-700);
+  }
+
+  .btn-ghost:hover:not(:disabled) {
+    background: var(--cream);
+    border-color: rgba(94, 68, 50, 0.28);
+    color: var(--cocoa-900);
+  }
+
+  .btn:disabled { opacity: 0.55; cursor: not-allowed; box-shadow: none; transform: none; }
+
+  .btn-sm { height: 40px; padding: 0 15px; font-size: 13.5px; }
+
+  .learn-form {
+    display: grid;
+    grid-template-columns: 1fr 1fr auto;
+    gap: 12px;
+    align-items: end;
+    margin-top: 18px;
+  }
+
+  .field { display: flex; flex-direction: column; gap: 6px; min-width: 0; }
+
+  .field label {
+    font-size: 10.5px;
+    font-weight: 600;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+    color: var(--cocoa-400);
+  }
+
+  .optional {
+    font-weight: 400;
+    letter-spacing: 0;
+    text-transform: none;
+    color: var(--cocoa-400);
+  }
+
+  .input {
+    width: 100%;
+    padding: 12px 14px;
+    border-radius: 14px;
+    border: 1px solid rgba(94, 68, 50, 0.16);
+    background: var(--cream);
+    font: inherit;
+    font-size: 15px;
+    color: var(--cocoa-900);
+    transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+  }
+
+  .input::placeholder { color: rgba(122, 97, 81, 0.55); }
+  .input:hover { border-color: rgba(94, 68, 50, 0.26); }
+
+  .input:focus {
+    outline: none;
+    border-color: #D9AE70;
+    background: #FFFDF9;
+    box-shadow: 0 0 0 4px rgba(227, 178, 101, 0.22);
+  }
+
+  /* ---------- Revision history ---------- */
+
+  .day-group { margin-top: 26px; }
+
+  .day-head {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: 12px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(94, 68, 50, 0.12);
+  }
+
+  .day-title {
+    margin: 0;
+    font-family: var(--font-display);
+    font-size: 18px;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    color: var(--cocoa-900);
+  }
+
+  .day-date {
+    font-size: 12.5px;
+    letter-spacing: 0.03em;
+    color: var(--cocoa-400);
+  }
+
+  .day-count {
+    margin-left: auto;
+    padding: 3px 10px;
+    border-radius: 999px;
+    background: rgba(240, 222, 190, 0.55);
+    border: 1px solid rgba(170, 130, 75, 0.18);
+    font-size: 11.5px;
+    font-weight: 600;
+    color: #8A6437;
+  }
+
+  .day-group .word-list { margin-top: 0; }
+
+  .empty-state {
+    margin-top: 28px;
+    padding: 48px 24px;
+    border-radius: 26px;
+    border: 1px dashed rgba(94, 68, 50, 0.2);
+    background: rgba(255, 252, 246, 0.7);
+    text-align: center;
+  }
+
+  .empty-title {
+    margin: 0 0 7px;
+    font-family: var(--font-display);
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--cocoa-800);
+  }
+
+  .empty-text {
+    margin: 0 auto;
+    max-width: 38ch;
+    font-size: 14.5px;
+    color: var(--cocoa-500);
+  }
+
+  /* ---------- Profile ---------- */
+
+  .profile-card {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    flex-wrap: wrap;
+    margin-top: 22px;
+    padding: 22px;
+    border-radius: 26px;
+    background: linear-gradient(150deg, #FFFCF6, #FAF0DF);
+    border: 1px solid rgba(176, 136, 86, 0.22);
+    box-shadow: var(--shadow-sm);
+  }
+
+  .avatar {
+    width: 64px;
+    height: 64px;
+    flex: none;
+    display: grid;
+    place-items: center;
+    border-radius: 22px;
+    font-family: var(--font-display);
+    font-size: 26px;
+    font-weight: 600;
+    color: #5A3F2D;
+    background: linear-gradient(150deg, #FBE7BE, #EFC98A);
+    border: 1px solid rgba(160, 120, 65, 0.25);
+    box-shadow: 0 10px 20px -16px rgba(120, 85, 45, 0.9);
+  }
+
+  .profile-meta { flex: 1 1 190px; min-width: 0; }
+
+  .profile-label {
+    margin: 0 0 2px;
+    font-size: 10.5px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--cocoa-400);
+  }
+
+  .profile-name {
+    margin: 0;
+    font-family: var(--font-display);
+    font-size: clamp(22px, 3.2vw, 28px);
+    font-weight: 600;
+    letter-spacing: -0.015em;
+    color: var(--cocoa-900);
+    overflow-wrap: anywhere;
+  }
+
+  .name-form {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-top: 8px;
+  }
+
+  .name-form .input { flex: 1 1 150px; width: auto; }
+
+  .stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin-top: 16px;
+  }
+
+  .stat {
+    padding: 18px;
+    border-radius: 22px;
+    background: rgba(255, 252, 246, 0.8);
+    border: 1px solid rgba(94, 68, 50, 0.1);
+    box-shadow: var(--shadow-sm);
+  }
+
+  .stat-value {
+    margin: 0;
+    font-family: var(--font-display);
+    font-size: clamp(26px, 4vw, 34px);
+    font-weight: 600;
+    line-height: 1;
+    letter-spacing: -0.02em;
+    color: var(--cocoa-900);
+  }
+
+  .stat-label {
+    margin: 9px 0 0;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--cocoa-400);
+  }
+
+  .profile-note {
+    margin: 16px 0 0;
+    font-size: 12.5px;
+    color: var(--cocoa-400);
+  }
+
+  /* ---------- Small screens ---------- */
+
+  @media (max-width: 720px) {
+    body { padding-bottom: 98px; }
+
+    .topbar { -webkit-backdrop-filter: none; backdrop-filter: none; background: #FCF8F1; }
+
+    .topbar-inner { padding: 12px 18px; }
+
+    main { padding: 26px 18px 40px; }
+
+    .nav {
+      position: fixed;
+      left: 12px;
+      right: 12px;
+      bottom: calc(10px + env(safe-area-inset-bottom));
+      z-index: 50;
+      justify-content: space-between;
+      padding: 8px;
+      border-radius: 22px;
+      background: rgba(255, 251, 243, 0.92);
+      -webkit-backdrop-filter: blur(18px) saturate(140%);
+      backdrop-filter: blur(18px) saturate(140%);
+      border: 1px solid rgba(94, 68, 50, 0.12);
+      box-shadow: 0 18px 40px -24px rgba(63, 44, 34, 0.55), 0 2px 6px rgba(63, 44, 34, 0.05);
+    }
+
+    .nav-btn {
+      flex: 1;
+      flex-direction: column;
+      gap: 4px;
+      padding: 8px 4px;
+      font-size: 11.5px;
+      font-weight: 600;
+      border-radius: 16px;
+    }
+
+    .nav-btn span { white-space: nowrap; }
+
+    .nav-icon { display: block; width: 20px; height: 20px; opacity: 0.7; }
+
+    .nav-btn[aria-current="page"] {
+      background: linear-gradient(180deg, #FBEED3, #F5E2BC);
+      color: #5A4028;
+      box-shadow: inset 0 0 0 1px rgba(160, 120, 65, 0.16);
+    }
+
+    .nav-btn[aria-current="page"] .nav-icon { opacity: 1; }
+
+    .learn-form {
+      grid-template-columns: 1fr;
+      align-items: stretch;
+    }
+
+    .learn-form .btn { width: 100%; }
+
+    .progress { padding: 7px 12px; }
+
+    .input { font-size: 16px; }
+  }
+
+  @media (max-width: 380px) {
+    .nav-btn { font-size: 10.5px; }
+    .brand-name { font-size: 17px; }
+  }
+
+  @media (max-width: 560px) {
+    .stats { grid-template-columns: 1fr 1fr; }
+    .stat:last-child { grid-column: 1 / -1; }
+    .word-item { padding: 13px 14px; }
+    .src-tag { font-size: 10px; }
+    .day-count { margin-left: 0; }
+    .profile-card > .btn { width: 100%; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.001ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.001ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+</style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="#home" aria-label="VocaBoost home">
+        <span class="brand-mark" aria-hidden="true">V</span>
+        <span class="brand-name">VocaBoost</span>
+      </a>
+
+      <nav class="nav" aria-label="Main">
+        <button class="nav-btn" type="button" data-view="home" aria-current="page">
+          <svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 10.6 12 4l8 6.6V19a1.5 1.5 0 0 1-1.5 1.5H15V14.4H9v6.1H5.5A1.5 1.5 0 0 1 4 19z"/>
+          </svg>
+          <span>Home</span>
+        </button>
+        <button class="nav-btn" type="button" data-view="history">
+          <svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="8"/>
+            <path d="M12 8v4.6l3 1.8"/>
+          </svg>
+          <span>Revision History</span>
+        </button>
+        <button class="nav-btn" type="button" data-view="profile">
+          <svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="9" r="3.4"/>
+            <path d="M5 20c.7-3.6 3.6-5.4 7-5.4s6.3 1.8 7 5.4"/>
+          </svg>
+          <span>Profile</span>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- Home -->
+    <section class="view" id="view-home" aria-labelledby="home-title">
+      <header class="view-header">
+        <p class="eyebrow" id="today-date">Today</p>
+        <h1 class="view-title" id="home-title">Today’s word</h1>
+      </header>
+
+      <article class="word-card" aria-labelledby="daily-word">
+        <div class="card-top">
+          <span class="tag">Word of the day</span>
+          <span class="chip" id="daily-pos">noun</span>
+        </div>
+        <h2 class="word" id="daily-word">Solace</h2>
+        <p class="meaning-label">Meaning</p>
+        <p class="meaning" id="daily-meaning">Comfort in a time of sadness or worry.</p>
+        <p class="example" id="daily-example">“She found solace in an old paperback and a warm cup of tea.”</p>
+      </article>
+
+      <section class="panel" aria-labelledby="more-title">
+        <div class="panel-head">
+          <div>
+            <h2 id="more-title">Need More Words?</h2>
+            <p class="panel-sub">Collect up to five extra words a day. Anything you pick stays in your revision history.</p>
+          </div>
+          <div class="progress" id="extra-progress" role="progressbar" aria-label="Extra words collected today" aria-valuemin="0" aria-valuemax="5" aria-valuenow="0">
+            <span class="dots" id="extra-dots" aria-hidden="true">
+              <span class="dot"></span>
+              <span class="dot"></span>
+              <span class="dot"></span>
+              <span class="dot"></span>
+              <span class="dot"></span>
+            </span>
+            <span class="progress-text" id="extra-count">0 of 5</span>
+          </div>
+        </div>
+
+        <ul class="word-list" id="extra-list"></ul>
+
+        <div class="panel-foot">
+          <button class="btn btn-honey" id="extra-btn" type="button">
+            <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+              <path d="M12 5v14M5 12h14"/>
+            </svg>
+            Get another word
+          </button>
+          <p class="hint" id="extra-hint" role="status">Five extra words are available today.</p>
+        </div>
+      </section>
+
+      <section class="panel" aria-labelledby="learned-title">
+        <h2 id="learned-title">What You Learned Today</h2>
+        <p class="panel-sub">Add a word you came across today and it will be kept with today’s date.</p>
+
+        <form class="learn-form" id="learned-form">
+          <div class="field">
+            <label for="learned-word">Word</label>
+            <input class="input" id="learned-word" name="word" type="text" placeholder="e.g. resilient" maxlength="40" autocomplete="off" required>
+          </div>
+          <div class="field">
+            <label for="learned-meaning">Meaning <span class="optional">(optional)</span></label>
+            <input class="input" id="learned-meaning" name="meaning" type="text" placeholder="What it means" maxlength="120" autocomplete="off">
+          </div>
+          <button class="btn btn-primary" type="submit">
+            <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+              <path d="M12 5v14M5 12h14"/>
+            </svg>
+            Add word
+          </button>
+        </form>
+
+        <p class="hint" id="learned-status" role="status"></p>
+
+        <ul class="word-list" id="learned-list"></ul>
+        <p class="empty-line" id="learned-empty">No words added yet today. The ones you add will appear here.</p>
+      </section>
+    </section>
+
+    <!-- Revision history -->
+    <section class="view" id="view-history" aria-labelledby="history-title" hidden>
+      <header class="view-header">
+        <p class="eyebrow">Your collection</p>
+        <h1 class="view-title" id="history-title">Revision History</h1>
+        <p class="view-sub">Every word you have saved, grouped by the day you learned it — newest first.</p>
+      </header>
+
+      <div id="history-body"></div>
+
+      <div class="empty-state" id="history-empty" hidden>
+        <h2 class="empty-title">Nothing saved yet</h2>
+        <p class="empty-text">Collect today’s word or add one of your own, and it will appear here with its date.</p>
+      </div>
+    </section>
+
+    <!-- Profile -->
+    <section class="view" id="view-profile" aria-labelledby="profile-title" hidden>
+      <header class="view-header">
+        <p class="eyebrow">Your space</p>
+        <h1 class="view-title" id="profile-title">Profile</h1>
+        <p class="view-sub">A quiet look at everything you have gathered so far.</p>
+      </header>
+
+      <section class="profile-card" aria-labelledby="profile-name">
+        <div class="avatar" id="avatar" aria-hidden="true">V</div>
+        <div class="profile-meta">
+          <p class="profile-label">Name</p>
+          <h2 class="profile-name" id="profile-name">Add your name</h2>
+          <form class="name-form" id="name-form" hidden>
+            <label class="sr-only" for="name-input">Your name</label>
+            <input class="input" id="name-input" type="text" maxlength="32" placeholder="Your name" autocomplete="name">
+            <button class="btn btn-primary btn-sm" type="submit">Save</button>
+            <button class="btn btn-ghost btn-sm" type="button" id="name-cancel">Cancel</button>
+          </form>
+        </div>
+        <button class="btn btn-ghost" type="button" id="name-edit">Add name</button>
+      </section>
+
+      <div class="stats">
+        <article class="stat">
+          <p class="stat-value" id="stat-words">0</p>
+          <p class="stat-label">Words collected</p>
+        </article>
+        <article class="stat">
+          <p class="stat-value" id="stat-days">0</p>
+          <p class="stat-label">Days practiced</p>
+        </article>
+        <article class="stat">
+          <p class="stat-value" id="stat-own">0</p>
+          <p class="stat-label">Your own words</p>
+        </article>
+      </div>
+
+      <p class="profile-note">Your words are saved on this device.</p>
+    </section>
+  </main>
+
+  <script>
+  (function () {
+    "use strict";
+
+    var STORAGE_KEY = "vocaboost.v1";
+    var EXTRA_LIMIT = 5;
+    var VIEW_NAMES = ["home", "history", "profile"];
+
+    var MONTHS = ["January", "February", "March", "April", "May", "June",
+      "July", "August", "September", "October", "November", "December"];
+    var WEEKDAYS = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+
+    /* A small, warm collection of words. */
+    var WORDS = [
+      { word: "solace", pos: "noun", meaning: "Comfort in a time of sadness or worry.", example: "She found solace in an old paperback and a warm cup of tea." },
+      { word: "verdant", pos: "adjective", meaning: "Green with growing plants.", example: "The path wound through verdant hills still wet with morning dew." },
+      { word: "mellifluous", pos: "adjective", meaning: "Sweet and smooth to listen to.", example: "His mellifluous voice made the long story feel short." },
+      { word: "aplomb", pos: "noun", meaning: "Calm confidence, especially in a tricky moment.", example: "She answered the sudden question with quiet aplomb." },
+      { word: "lucid", pos: "adjective", meaning: "Clear and easy to follow.", example: "Her explanation was so lucid that even the beginners nodded along." },
+      { word: "ebullient", pos: "adjective", meaning: "Brimming with cheerful energy.", example: "The ebullient crowd spilled onto the street after the match." },
+      { word: "gossamer", pos: "adjective", meaning: "Light, fine and delicate.", example: "A gossamer layer of frost clung to the window." },
+      { word: "halcyon", pos: "adjective", meaning: "Peaceful and happy, often about a time in the past.", example: "They still talk about those halcyon summers by the lake." },
+      { word: "resilient", pos: "adjective", meaning: "Able to recover quickly from difficulty.", example: "The little shop proved surprisingly resilient that winter." },
+      { word: "amiable", pos: "adjective", meaning: "Friendly and easy to be around.", example: "Our amiable neighbor brought over a plate of warm bread." },
+      { word: "buoyant", pos: "adjective", meaning: "Cheerful, and able to rise or float.", example: "She left the meeting in a buoyant mood." },
+      { word: "candid", pos: "adjective", meaning: "Honest and direct, with nothing hidden.", example: "He gave a candid account of what went wrong." },
+      { word: "eloquent", pos: "adjective", meaning: "Speaking or writing in a moving, graceful way.", example: "Her eloquent toast left half the table misty-eyed." },
+      { word: "fervent", pos: "adjective", meaning: "Showing intense feeling.", example: "He is a fervent believer in second chances." },
+      { word: "gracious", pos: "adjective", meaning: "Warm, kind and polite.", example: "The host was gracious even when the guests arrived late." },
+      { word: "idyllic", pos: "adjective", meaning: "Perfectly peaceful and beautiful.", example: "They rented an idyllic cottage at the edge of the orchard." },
+      { word: "jubilant", pos: "adjective", meaning: "Full of joy and triumph.", example: "Jubilant fans stayed long after the final whistle." },
+      { word: "luminous", pos: "adjective", meaning: "Giving off a soft, steady light.", example: "The screen cast a luminous glow across the dark room." },
+      { word: "mellow", pos: "adjective", meaning: "Soft, relaxed and gentle.", example: "The evening turned mellow as the music slowed." },
+      { word: "nurture", pos: "verb", meaning: "To care for something so that it grows.", example: "Good teachers nurture curiosity more than they test it." },
+      { word: "placid", pos: "adjective", meaning: "Calm and untroubled.", example: "The lake was placid before the wind picked up." },
+      { word: "quell", pos: "verb", meaning: "To quiet or put an end to something.", example: "A kind word can quell a room full of nerves." },
+      { word: "radiant", pos: "adjective", meaning: "Bright and full of happiness.", example: "She came back from the trip looking radiant." },
+      { word: "savor", pos: "verb", meaning: "To enjoy slowly and fully.", example: "Savor the first sip; there is no hurry." },
+      { word: "tranquil", pos: "adjective", meaning: "Quiet and deeply peaceful.", example: "The garden stayed tranquil even in the middle of the city." },
+      { word: "winsome", pos: "adjective", meaning: "Charming in a sweet, open way.", example: "His winsome grin made apologies easy." },
+      { word: "zealous", pos: "adjective", meaning: "Filled with eager enthusiasm.", example: "A zealous reader, she finished two books a week." },
+      { word: "abundant", pos: "adjective", meaning: "Existing in generous amounts.", example: "The market was abundant with late-summer peaches." },
+      { word: "cherish", pos: "verb", meaning: "To hold something dear.", example: "I cherish those handwritten notes." },
+      { word: "ember", pos: "noun", meaning: "A small glowing piece of fire.", example: "One ember was still glowing in the hearth." },
+      { word: "glisten", pos: "verb", meaning: "To shine with reflected light, often when wet.", example: "The leaves glistened after the rain." },
+      { word: "harmony", pos: "noun", meaning: "A pleasing blend of different parts.", example: "There was an easy harmony between the two musicians." },
+      { word: "jovial", pos: "adjective", meaning: "Cheerful and friendly.", example: "A jovial baker handed out samples to everyone." },
+      { word: "kindle", pos: "verb", meaning: "To start a fire, or to spark a feeling.", example: "One good question can kindle a lifelong interest." },
+      { word: "serene", pos: "adjective", meaning: "Calm and untroubled.", example: "She wore a serene expression through the whole delay." },
+      { word: "tender", pos: "adjective", meaning: "Gentle and caring.", example: "He offered a tender word when she needed it most." },
+      { word: "brisk", pos: "adjective", meaning: "Quick and full of energy.", example: "A brisk walk before breakfast clears the head." },
+      { word: "quaint", pos: "adjective", meaning: "Charming because it is pleasantly old-fashioned.", example: "They stayed in a quaint inn with creaking floors." },
+      { word: "humble", pos: "adjective", meaning: "Modest about your own importance.", example: "For someone so accomplished, she is remarkably humble." },
+      { word: "diligent", pos: "adjective", meaning: "Careful and steady in effort.", example: "Diligent practice beats a lucky night." },
+      { word: "fondness", pos: "noun", meaning: "Warm affection for someone or something.", example: "He has a fondness for old bookshops." },
+      { word: "blissful", pos: "adjective", meaning: "Perfectly happy and content.", example: "Sunday mornings here are blissful and slow." },
+      { word: "reverie", pos: "noun", meaning: "A pleasant daydream.", example: "The doorbell pulled her out of a reverie." },
+      { word: "murmur", pos: "noun", meaning: "A soft, low sound.", example: "A murmur of approval moved through the crowd." },
+      { word: "lavish", pos: "adjective", meaning: "Generous or rich in amount.", example: "They laid out a lavish breakfast on the terrace." },
+      { word: "balm", pos: "noun", meaning: "Something that soothes.", example: "A walk by the river is a balm after a long week." },
+      { word: "cordial", pos: "adjective", meaning: "Warm and friendly.", example: "The two rivals managed a cordial handshake." },
+      { word: "serendipity", pos: "noun", meaning: "A happy chance discovery.", example: "Meeting her at the market was pure serendipity." },
+      { word: "ample", pos: "adjective", meaning: "More than enough.", example: "There was ample time to catch the last train." },
+      { word: "wistful", pos: "adjective", meaning: "A little sad with longing, but gentle.", example: "He gave the old house a wistful look." },
+      { word: "zephyr", pos: "noun", meaning: "A soft, gentle breeze.", example: "A zephyr moved through the curtains." },
+      { word: "empathy", pos: "noun", meaning: "The ability to share what someone else feels.", example: "Her empathy made the hard conversation easier." }
+    ];
+
+    /* ---------- Small helpers ---------- */
+
+    function $(selector) { return document.querySelector(selector); }
+    function pad(number) { return String(number).padStart(2, "0"); }
+
+    function todayKey() {
+      var now = new Date();
+      return now.getFullYear() + "-" + pad(now.getMonth() + 1) + "-" + pad(now.getDate());
+    }
+
+    function parseKey(key) {
+      var parts = key.split("-").map(Number);
+      return new Date(parts[0], parts[1] - 1, parts[2]);
+    }
+
+    function dayDiff(fromKey, toKey) {
+      var a = parseKey(fromKey);
+      var b = parseKey(toKey);
+      return Math.round((b - a) / 86400000);
+    }
+
+    function relativeDay(key) {
+      var diff = dayDiff(key, todayKey());
+      if (diff === 0) { return "Today"; }
+      if (diff === 1) { return "Yesterday"; }
+      return WEEKDAYS[parseKey(key).getDay()];
+    }
+
+    function longDate(key) {
+      var date = parseKey(key);
+      return date.getDate() + " " + MONTHS[date.getMonth()] + " " + date.getFullYear();
+    }
+
+    function capWord(word) {
+      if (!word) { return ""; }
+      return /^[a-z]/.test(word) ? word.charAt(0).toUpperCase() + word.slice(1) : word;
+    }
+
+    function hashString(text) {
+      var hash = 2166136261;
+      for (var i = 0; i < text.length; i += 1) {
+        hash ^= text.charCodeAt(i);
+        hash = Math.imul(hash, 16777619);
+      }
+      return hash >>> 0;
+    }
+
+    /* ---------- State ---------- */
+
+    var state = loadState();
+
+    function loadState() {
+      var fallback = { name: "", days: {} };
+      try {
+        var raw = localStorage.getItem(STORAGE_KEY);
+        if (!raw) { return fallback; }
+        var parsed = JSON.parse(raw);
+        if (!parsed || typeof parsed !== "object") { return fallback; }
+        return {
+          name: typeof parsed.name === "string" ? parsed.name : "",
+          days: parsed.days && typeof parsed.days === "object" ? parsed.days : {}
+        };
+      } catch (error) {
+        return fallback;
+      }
+    }
+
+    function saveState() {
+      try {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+      } catch (error) {
+        /* Storage can be unavailable; the app keeps working in memory. */
+      }
+    }
+
+    function hasEntries(day) {
+      return Boolean(day && (day.daily || (day.extras && day.extras.length) || (day.learned && day.learned.length)));
+    }
+
+    function pickDailyWord(key) {
+      var recent = {};
+      Object.keys(state.days).forEach(function (otherKey) {
+        var gap = dayDiff(otherKey, key);
+        if (gap < 0 || gap > 6) { return; }
+        var day = state.days[otherKey];
+        if (!day) { return; }
+        if (day.daily && day.daily.word) { recent[day.daily.word] = true; }
+        (day.extras || []).forEach(function (word) { recent[word.word] = true; });
+      });
+
+      var start = hashString(key) % WORDS.length;
+      for (var i = 0; i < WORDS.length; i += 1) {
+        var candidate = WORDS[(start + i) % WORDS.length];
+        if (!recent[candidate.word]) { return copyWord(candidate); }
+      }
+      return copyWord(WORDS[start]);
+    }
+
+    function pickExtraWord(day) {
+      var used = {};
+      if (day.daily) { used[day.daily.word] = true; }
+      day.extras.forEach(function (word) { used[word.word] = true; });
+      day.learned.forEach(function (entry) { used[String(entry.word).toLowerCase()] = true; });
+
+      var today = todayKey();
+      Object.keys(state.days).forEach(function (key) {
+        if (key === today) { return; }
+        if (Math.abs(dayDiff(key, today)) > 14) { return; }
+        var other = state.days[key];
+        if (!other) { return; }
+        if (other.daily && other.daily.word) { used[other.daily.word] = true; }
+        (other.extras || []).forEach(function (word) { used[word.word] = true; });
+        (other.learned || []).forEach(function (entry) { used[String(entry.word).toLowerCase()] = true; });
+      });
+
+      var pool = WORDS.filter(function (word) { return !used[word.word]; });
+      if (!pool.length) {
+        pool = WORDS.filter(function (word) {
+          var todayWord = day.daily ? day.daily.word : "";
+          var alreadyShown = day.extras.some(function (extra) { return extra.word === word.word; });
+          return word.word !== todayWord && !alreadyShown;
+        });
+      }
+      var pick = pool[Math.floor(Math.random() * pool.length)] || WORDS[0];
+      return copyWord(pick);
+    }
+
+    function copyWord(word) {
+      return { word: word.word, pos: word.pos, meaning: word.meaning, example: word.example };
+    }
+
+    function getDay(key) {
+      var day = state.days[key];
+      if (!day || typeof day !== "object") {
+        day = { daily: null, extras: [], learned: [] };
+        state.days[key] = day;
+      }
+      if (!Array.isArray(day.extras)) { day.extras = []; }
+      if (!Array.isArray(day.learned)) { day.learned = []; }
+      if (!day.daily) { day.daily = pickDailyWord(key); }
+      return day;
+    }
+
+    /* ---------- Rendering ---------- */
+
+    function renderToday() {
+      var now = new Date();
+      var day = getDay(todayKey());
+
+      $("#today-date").textContent =
+        WEEKDAYS[now.getDay()] + " · " + now.getDate() + " " + MONTHS[now.getMonth()];
+      $("#daily-pos").textContent = day.daily.pos;
+      $("#daily-word").textContent = capWord(day.daily.word);
+      $("#daily-meaning").textContent = day.daily.meaning;
+      $("#daily-example").textContent = "“" + day.daily.example + "”";
+    }
+
+    function buildRow(options) {
+      var li = document.createElement("li");
+      li.className = "word-item" + (options.isNew ? " is-new" : "");
+
+      if (options.badge !== undefined && options.badge !== null) {
+        var badge = document.createElement("span");
+        badge.className = "index-badge";
+        badge.setAttribute("aria-hidden", "true");
+        badge.textContent = options.badge;
+        li.appendChild(badge);
+      }
+
+      var body = document.createElement("div");
+      body.className = "item-body";
+
+      var top = document.createElement("div");
+      top.className = "item-top";
+
+      var word = document.createElement("h3");
+      word.className = "item-word";
+      word.textContent = capWord(options.word);
+      top.appendChild(word);
+
+      if (options.pos) {
+        var chip = document.createElement("span");
+        chip.className = "chip";
+        chip.textContent = options.pos;
+        top.appendChild(chip);
+      }
+
+      if (options.source) {
+        var source = document.createElement("span");
+        source.className = "src-tag";
+        source.textContent = options.source;
+        top.appendChild(source);
+      }
+
+      var meaning = document.createElement("p");
+      meaning.className = "item-meaning" + (options.meaning ? "" : " is-muted");
+      meaning.textContent = options.meaning || "No meaning added.";
+
+      body.appendChild(top);
+      body.appendChild(meaning);
+      li.appendChild(body);
+      return li;
+    }
+
+    function renderExtras(newIndex) {
+      var day = getDay(todayKey());
+      var list = $("#extra-list");
+      var dots = document.querySelectorAll("#extra-dots .dot");
+      var count = day.extras.length;
+      var button = $("#extra-btn");
+      var hint = $("#extra-hint");
+
+      list.innerHTML = "";
+      day.extras.forEach(function (word, index) {
+        list.appendChild(buildRow({
+          word: word.word,
+          pos: word.pos,
+          meaning: word.meaning,
+          badge: index + 1,
+          isNew: index === newIndex
+        }));
+      });
+
+      Array.prototype.forEach.call(dots, function (dot, index) {
+        dot.classList.toggle("is-filled", index < count);
+      });
+
+      $("#extra-count").textContent = count + " of " + EXTRA_LIMIT;
+      $("#extra-progress").setAttribute("aria-valuenow", String(count));
+
+      button.disabled = count >= EXTRA_LIMIT;
+      hint.classList.toggle("is-full", count >= EXTRA_LIMIT);
+
+      if (count >= EXTRA_LIMIT) {
+        hint.textContent = "That’s all five for today. Fresh words tomorrow.";
+      } else if (count === 0) {
+        hint.textContent = "Five extra words are available today.";
+      } else {
+        var left = EXTRA_LIMIT - count;
+        hint.textContent = left + (left === 1 ? " extra word" : " extra words") + " left today.";
+      }
+    }
+
+    function renderLearned(newIndex) {
+      var day = getDay(todayKey());
+      var list = $("#learned-list");
+
+      list.innerHTML = "";
+      day.learned.forEach(function (entry, index) {
+        list.appendChild(buildRow({
+          word: entry.word,
+          pos: entry.pos,
+          meaning: entry.meaning,
+          badge: index + 1,
+          isNew: index === newIndex
+        }));
+      });
+
+      $("#learned-empty").hidden = day.learned.length > 0;
+    }
+
+    function entriesOf(day) {
+      var entries = [];
+      if (day.daily) {
+        entries.push({
+          word: day.daily.word,
+          pos: day.daily.pos,
+          meaning: day.daily.meaning,
+          source: "Word of the day"
+        });
+      }
+      (day.extras || []).forEach(function (word) {
+        entries.push({ word: word.word, pos: word.pos, meaning: word.meaning, source: "Extra word" });
+      });
+      (day.learned || []).forEach(function (word) {
+        entries.push({ word: word.word, pos: word.pos || "", meaning: word.meaning || "", source: "Your word" });
+      });
+      return entries;
+    }
+
+    function renderHistory() {
+      var body = $("#history-body");
+      var empty = $("#history-empty");
+      var keys = Object.keys(state.days)
+        .filter(function (key) { return hasEntries(state.days[key]); })
+        .sort()
+        .reverse();
+
+      body.innerHTML = "";
+
+      if (!keys.length) {
+        empty.hidden = false;
+        return;
+      }
+      empty.hidden = true;
+
+      keys.forEach(function (key) {
+        var entries = entriesOf(state.days[key]);
+        var group = document.createElement("section");
+        group.className = "day-group";
+
+        var head = document.createElement("div");
+        head.className = "day-head";
+
+        var title = document.createElement("h2");
+        title.className = "day-title";
+        title.textContent = relativeDay(key);
+
+        var date = document.createElement("span");
+        date.className = "day-date";
+        date.textContent = longDate(key);
+
+        var count = document.createElement("span");
+        count.className = "day-count";
+        count.textContent = entries.length + (entries.length === 1 ? " word" : " words");
+
+        head.appendChild(title);
+        head.appendChild(date);
+        head.appendChild(count);
+
+        var list = document.createElement("ul");
+        list.className = "word-list";
+        entries.forEach(function (entry) {
+          list.appendChild(buildRow({
+            word: entry.word,
+            pos: entry.pos,
+            meaning: entry.meaning,
+            source: entry.source
+          }));
+        });
+
+        group.appendChild(head);
+        group.appendChild(list);
+        body.appendChild(group);
+      });
+    }
+
+    function totals() {
+      var words = 0;
+      var own = 0;
+      var days = 0;
+
+      Object.keys(state.days).forEach(function (key) {
+        var day = state.days[key];
+        if (!hasEntries(day)) { return; }
+        days += 1;
+        words += (day.daily ? 1 : 0) + (day.extras || []).length + (day.learned || []).length;
+        own += (day.learned || []).length;
+      });
+
+      return { words: words, own: own, days: days };
+    }
+
+    function closeNameForm() {
+      $("#name-form").hidden = true;
+      $("#profile-name").hidden = false;
+      $("#name-edit").hidden = false;
+    }
+
+    function openNameForm() {
+      var input = $("#name-input");
+      $("#name-form").hidden = false;
+      $("#profile-name").hidden = true;
+      $("#name-edit").hidden = true;
+      input.value = state.name;
+      input.focus();
+      input.select();
+    }
+
+    function renderProfile() {
+      var counts = totals();
+
+      closeNameForm();
+
+      $("#profile-name").textContent = state.name || "Add your name";
+      $("#name-edit").textContent = state.name ? "Edit name" : "Add name";
+      $("#avatar").textContent = state.name ? state.name.charAt(0).toUpperCase() : "V";
+      $("#stat-words").textContent = counts.words;
+      $("#stat-days").textContent = counts.days;
+      $("#stat-own").textContent = counts.own;
+    }
+
+    /* ---------- View switching ---------- */
+
+    function viewFromHash() {
+      var name = location.hash.replace(/^#/, "").toLowerCase();
+      return VIEW_NAMES.indexOf(name) !== -1 ? name : "home";
+    }
+
+    function showView(name, options) {
+      var settings = options || {};
+
+      Array.prototype.forEach.call(document.querySelectorAll(".view"), function (view) {
+        view.hidden = view.id !== "view-" + name;
+      });
+
+      Array.prototype.forEach.call(document.querySelectorAll(".nav-btn"), function (button) {
+        if (button.dataset.view === name) {
+          button.setAttribute("aria-current", "page");
+        } else {
+          button.removeAttribute("aria-current");
+        }
+      });
+
+      if (name === "history") { renderHistory(); }
+      if (name === "profile") { renderProfile(); }
+
+      document.title = "VocaBoost · " +
+        (name === "home" ? "Home" : name === "history" ? "Revision History" : "Profile");
+
+      if (!settings.silent && !settings.noScroll) {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }
+    }
+
+    /* ---------- Events ---------- */
+
+    function bindNavigation() {
+      Array.prototype.forEach.call(document.querySelectorAll(".nav-btn"), function (button) {
+        button.addEventListener("click", function () {
+          var target = "#" + button.dataset.view;
+          if (location.hash === target) {
+            showView(button.dataset.view);
+          } else {
+            location.hash = target;
+          }
+        });
+      });
+
+      window.addEventListener("hashchange", function () {
+        showView(viewFromHash());
+      });
+    }
+
+    function bindExtras() {
+      $("#extra-btn").addEventListener("click", function () {
+        var day = getDay(todayKey());
+        if (day.extras.length >= EXTRA_LIMIT) { return; }
+
+        var word = pickExtraWord(day);
+        day.extras.push(word);
+        saveState();
+
+        var index = day.extras.length - 1;
+        renderExtras(index);
+
+        var hint = $("#extra-hint");
+        if (day.extras.length >= EXTRA_LIMIT) {
+          hint.textContent = "“" + capWord(word.word) + "” added. That’s all five for today.";
+        } else {
+          hint.textContent = "“" + capWord(word.word) + "” added. " +
+            (EXTRA_LIMIT - day.extras.length) + " left today.";
+        }
+      });
+    }
+
+    function bindLearnedForm() {
+      var form = $("#learned-form");
+      var wordInput = $("#learned-word");
+      var meaningInput = $("#learned-meaning");
+      var status = $("#learned-status");
+      var statusTimer = null;
+
+      function announce(message) {
+        status.textContent = message;
+        window.clearTimeout(statusTimer);
+        statusTimer = window.setTimeout(function () { status.textContent = ""; }, 4200);
+      }
+
+      wordInput.addEventListener("input", function () {
+        status.textContent = "";
+        window.clearTimeout(statusTimer);
+      });
+
+      form.addEventListener("submit", function (event) {
+        event.preventDefault();
+
+        var word = wordInput.value.trim().replace(/\s+/g, " ");
+        var meaning = meaningInput.value.trim().replace(/\s+/g, " ");
+
+        if (!word) {
+          announce("Add a word first.");
+          wordInput.focus();
+          return;
+        }
+
+        var day = getDay(todayKey());
+        day.learned.push({
+          word: (word.toLowerCase() === word ? capWord(word) : word).slice(0, 40),
+          pos: "",
+          meaning: meaning.slice(0, 120)
+        });
+        saveState();
+
+        var index = day.learned.length - 1;
+        form.reset();
+        renderLearned(index);
+        announce("“" + capWord(word) + "” added to today’s words.");
+        wordInput.focus();
+      });
+    }
+
+    function bindNameForm() {
+      var form = $("#name-form");
+      var input = $("#name-input");
+
+      $("#name-edit").addEventListener("click", openNameForm);
+
+      $("#name-cancel").addEventListener("click", function () {
+        closeNameForm();
+        $("#name-edit").focus();
+      });
+
+      form.addEventListener("submit", function (event) {
+        event.preventDefault();
+        state.name = input.value.trim().replace(/\s+/g, " ").slice(0, 32);
+        saveState();
+        renderProfile();
+      });
+
+      input.addEventListener("keydown", function (event) {
+        if (event.key === "Escape") {
+          closeNameForm();
+          $("#name-edit").focus();
+        }
+      });
+    }
+
+    /* ---------- Start ---------- */
+
+    function init() {
+      getDay(todayKey());
+      saveState();
+
+      bindNavigation();
+      bindExtras();
+      bindLearnedForm();
+      bindNameForm();
+
+      renderToday();
+      renderExtras();
+      renderLearned();
+      renderHistory();
+      renderProfile();
+
+      showView(viewFromHash(), { silent: true });
+    }
+
+    init();
+  })();
+  </script>
+</body>
+</html>
