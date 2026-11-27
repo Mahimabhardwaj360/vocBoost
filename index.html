@@ -279,18 +279,6 @@
     box-shadow: 0 0 0 4px rgba(226, 186, 116, 0.22);
   }
 
-  .chip {
-    display: inline-block;
-    padding: 4px 11px;
-    border-radius: 999px;
-    background: rgba(255, 252, 246, 0.72);
-    border: 1px solid rgba(150, 115, 75, 0.24);
-    font-size: 12px;
-    font-weight: 500;
-    font-style: italic;
-    color: var(--cocoa-700);
-  }
-
   .word {
     margin: 20px 0 0;
     font-family: var(--font-display);
@@ -319,16 +307,28 @@
     color: var(--cocoa-800);
   }
 
-  .example {
-    margin: 18px 0 0;
-    padding-left: 16px;
-    max-width: 52ch;
-    border-left: 2px solid rgba(207, 154, 71, 0.55);
-    font-family: var(--font-display);
-    font-style: italic;
-    font-size: 15.5px;
-    line-height: 1.6;
-    color: var(--cocoa-500);
+  .notice {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+    flex-wrap: wrap;
+    margin-bottom: 22px;
+    padding: 14px 16px;
+    border-radius: 18px;
+    background: rgba(247, 228, 184, 0.5);
+    border: 1px solid rgba(170, 120, 75, 0.3);
+    color: #7C4A33;
+  }
+
+  .notice p {
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.55;
+  }
+
+  .notice .btn {
+    flex: none;
   }
 
   /* ---------- Panels ---------- */
@@ -498,6 +498,7 @@
   }
 
   .hint.is-full { color: #8A6437; font-weight: 500; }
+  .hint.is-error { color: #94462F; font-weight: 500; }
 
   .empty-line {
     margin: 16px 0 0;
@@ -752,6 +753,8 @@
 
   .name-form .input { flex: 1 1 150px; width: auto; }
 
+  #name-status:not(:empty) { margin-top: 10px; }
+
   .stats {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -791,6 +794,161 @@
     font-size: 12.5px;
     color: var(--cocoa-400);
   }
+
+  /* ---------- Boot, sign in & account ---------- */
+
+  .boot-screen {
+    min-height: 60vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    padding: 60px 24px;
+  }
+
+  .boot-mark {
+    width: 56px;
+    height: 56px;
+    display: grid;
+    place-items: center;
+    border-radius: 18px;
+    font-family: var(--font-display);
+    font-size: 26px;
+    font-weight: 600;
+    color: #4A3324;
+    background: linear-gradient(150deg, #FBE9C6, #EFCB8B);
+    border: 1px solid rgba(150, 110, 60, 0.22);
+    box-shadow: 0 16px 28px -20px rgba(120, 85, 45, 0.9);
+    animation: breathe 2.4s ease-in-out infinite;
+  }
+
+  @keyframes breathe {
+    0%, 100% { opacity: 0.78; transform: translateY(0); }
+    50% { opacity: 1; transform: translateY(-3px); }
+  }
+
+  .boot-text {
+    margin: 0;
+    font-size: 13.5px;
+    letter-spacing: 0.02em;
+    color: var(--cocoa-400);
+  }
+
+  .auth-wrap {
+    max-width: 470px;
+    margin: 0 auto;
+    padding: clamp(30px, 6vw, 56px) 22px 80px;
+  }
+
+  .auth-card {
+    padding: clamp(24px, 4.4vw, 34px);
+    border-radius: 30px;
+    background: linear-gradient(165deg, #FFFCF6 0%, #FAF0DF 100%);
+    border: 1px solid rgba(176, 136, 86, 0.24);
+    box-shadow: var(--shadow-md);
+    animation: viewIn 0.5s cubic-bezier(0.22, 0.8, 0.3, 1) both;
+  }
+
+  .auth-title {
+    margin: 0;
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: clamp(26px, 5vw, 32px);
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    color: var(--cocoa-900);
+  }
+
+  .auth-sub {
+    margin: 10px 0 0;
+    font-size: 14.5px;
+    line-height: 1.6;
+    color: var(--cocoa-500);
+  }
+
+  .auth-tabs {
+    display: flex;
+    gap: 4px;
+    margin: 22px 0 20px;
+    padding: 4px;
+    border-radius: 14px;
+    background: rgba(94, 68, 50, 0.07);
+    border: 1px solid rgba(94, 68, 50, 0.05);
+  }
+
+  .auth-tab {
+    flex: 1;
+    appearance: none;
+    border: 0;
+    border-radius: 11px;
+    background: transparent;
+    font: inherit;
+    font-size: 13.5px;
+    font-weight: 600;
+    color: var(--cocoa-500);
+    padding: 9px 10px;
+    cursor: pointer;
+    transition: color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .auth-tab:hover { color: var(--cocoa-900); }
+
+  .auth-tab:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(227, 178, 101, 0.42);
+  }
+
+  .auth-tab[aria-pressed="true"] {
+    background: var(--cream);
+    color: var(--cocoa-900);
+    box-shadow: 0 1px 2px rgba(63, 44, 34, 0.06), 0 8px 16px -14px rgba(63, 44, 34, 0.55);
+  }
+
+  .auth-form { display: grid; gap: 14px; }
+  .auth-form .btn { width: 100%; margin-top: 2px; }
+
+  .auth-message {
+    margin: 14px 0 0;
+    min-height: 20px;
+    font-size: 13px;
+    line-height: 1.5;
+    color: var(--cocoa-500);
+  }
+
+  .auth-message.is-error { color: #94462F; }
+  .auth-message.is-ok { color: #7C6437; font-weight: 500; }
+
+  .auth-message.is-config {
+    padding: 12px 14px;
+    border-radius: 14px;
+    background: rgba(247, 228, 184, 0.5);
+    border: 1px solid rgba(170, 130, 75, 0.25);
+    color: #7C5A2E;
+  }
+
+  .account-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+    flex-wrap: wrap;
+    margin-top: 16px;
+    padding: 18px 20px;
+    border-radius: 22px;
+    background: rgba(255, 252, 246, 0.8);
+    border: 1px solid rgba(94, 68, 50, 0.1);
+    box-shadow: var(--shadow-sm);
+  }
+
+  .account-email {
+    margin: 0;
+    font-size: 14.5px;
+    color: var(--cocoa-800);
+    overflow-wrap: anywhere;
+  }
+
+  #profile-status:not(:empty) { margin-top: 10px; }
 
   /* ---------- Small screens ---------- */
 
@@ -851,6 +1009,8 @@
     .progress { padding: 7px 12px; }
 
     .input { font-size: 16px; }
+
+    .auth-wrap { padding: 24px 18px 48px; }
   }
 
   @media (max-width: 380px) {
@@ -865,6 +1025,7 @@
     .src-tag { font-size: 10px; }
     .day-count { margin-left: 0; }
     .profile-card > .btn { width: 100%; }
+    .account-row > .btn { width: 100%; }
   }
 
   @media (prefers-reduced-motion: reduce) {
@@ -885,7 +1046,7 @@
         <span class="brand-name">VocaBoost</span>
       </a>
 
-      <nav class="nav" aria-label="Main">
+      <nav class="nav" id="main-nav" aria-label="Main" hidden>
         <button class="nav-btn" type="button" data-view="home" aria-current="page">
           <svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
             <path d="M4 10.6 12 4l8 6.6V19a1.5 1.5 0 0 1-1.5 1.5H15V14.4H9v6.1H5.5A1.5 1.5 0 0 1 4 19z"/>
@@ -910,7 +1071,44 @@
     </div>
   </header>
 
-  <main id="main">
+  <div class="boot-screen" id="boot-screen">
+    <div class="boot-mark" aria-hidden="true">V</div>
+    <p class="boot-text">Opening VocaBoost…</p>
+  </div>
+
+  <section class="auth-wrap" id="auth-screen" aria-labelledby="auth-title" hidden>
+    <div class="auth-card">
+      <p class="eyebrow">Welcome</p>
+      <h1 class="auth-title" id="auth-title">A calmer way to grow your words.</h1>
+      <p class="auth-sub">Log in to meet today’s word and keep every word you collect.</p>
+
+      <div class="auth-tabs" role="group" aria-label="Log in or sign up">
+        <button class="auth-tab" type="button" data-mode="login" aria-pressed="true">Log in</button>
+        <button class="auth-tab" type="button" data-mode="signup" aria-pressed="false">Sign up</button>
+      </div>
+
+      <form class="auth-form" id="auth-form">
+        <div class="field">
+          <label for="auth-email">Email</label>
+          <input class="input" id="auth-email" name="email" type="email" autocomplete="email" inputmode="email" placeholder="you@example.com" required>
+        </div>
+        <div class="field">
+          <label for="auth-password">Password</label>
+          <input class="input" id="auth-password" name="password" type="password" autocomplete="current-password" placeholder="Your password" required>
+        </div>
+        <button class="btn btn-primary" id="auth-submit" type="submit">Log in</button>
+      </form>
+
+      <p class="auth-message" id="auth-message" role="status"></p>
+    </div>
+  </section>
+
+  <main id="main" hidden>
+    <div class="notice" id="app-notice" role="alert" hidden>
+      <p id="app-notice-text"></p>
+      <button class="btn btn-ghost btn-sm" id="app-notice-retry" type="button">Try again</button>
+    </div>
+
     <!-- Home -->
     <section class="view" id="view-home" aria-labelledby="home-title">
       <header class="view-header">
@@ -921,12 +1119,10 @@
       <article class="word-card" aria-labelledby="daily-word">
         <div class="card-top">
           <span class="tag">Word of the day</span>
-          <span class="chip" id="daily-pos">noun</span>
         </div>
-        <h2 class="word" id="daily-word">Solace</h2>
+        <h2 class="word" id="daily-word">—</h2>
         <p class="meaning-label">Meaning</p>
-        <p class="meaning" id="daily-meaning">Comfort in a time of sadness or worry.</p>
-        <p class="example" id="daily-example">“She found solace in an old paperback and a warm cup of tea.”</p>
+        <p class="meaning" id="daily-meaning">Today’s word is being fetched…</p>
       </article>
 
       <section class="panel" aria-labelledby="more-title">
@@ -1023,6 +1219,7 @@
             <button class="btn btn-primary btn-sm" type="submit">Save</button>
             <button class="btn btn-ghost btn-sm" type="button" id="name-cancel">Cancel</button>
           </form>
+          <p class="hint" id="name-status" role="status"></p>
         </div>
         <button class="btn btn-ghost" type="button" id="name-edit">Add name</button>
       </section>
@@ -1042,77 +1239,52 @@
         </article>
       </div>
 
-      <p class="profile-note">Your words are saved on this device.</p>
+      <div class="account-row">
+        <div>
+          <p class="profile-label">Signed in as</p>
+          <p class="account-email" id="profile-email">—</p>
+        </div>
+        <button class="btn btn-ghost" id="logout-btn" type="button">Log out</button>
+      </div>
+      <p class="hint" id="profile-status" role="status"></p>
+
+      <p class="profile-note">Your words are saved to your account.</p>
     </section>
   </main>
 
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.119.2/dist/umd/supabase.js"></script>
   <script>
   (function () {
     "use strict";
 
-    var STORAGE_KEY = "vocaboost.v1";
+    /* ============================================================
+       SUPABASE CONFIG — paste your two values here.
+       Find them in Supabase: Project Settings -> API.
+       The anon key is public; it is safe to keep in this file.
+       ============================================================ */
+    var SUPABASE_URL = "YOUR_SUPABASE_PROJECT_URL";
+    var SUPABASE_ANON_KEY = "YOUR_SUPABASE_ANON_KEY";
+
     var EXTRA_LIMIT = 5;
     var VIEW_NAMES = ["home", "history", "profile"];
+
+    var supabaseClient = null;
+    var currentUserId = null;
+    var authMode = "login";
+    var lastEmail = "";
+
+    /* Everything below is loaded from Supabase for the signed-in user. */
+    var entries = [];
+    var vocabulary = [];
+    var profileName = "";
+    var isReady = false;
+    var starting = false;
+    var extraPending = false;
+    var currentDay = "";
 
     var MONTHS = ["January", "February", "March", "April", "May", "June",
       "July", "August", "September", "October", "November", "December"];
     var WEEKDAYS = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
-
-    /* A small, warm collection of words. */
-    var WORDS = [
-      { word: "solace", pos: "noun", meaning: "Comfort in a time of sadness or worry.", example: "She found solace in an old paperback and a warm cup of tea." },
-      { word: "verdant", pos: "adjective", meaning: "Green with growing plants.", example: "The path wound through verdant hills still wet with morning dew." },
-      { word: "mellifluous", pos: "adjective", meaning: "Sweet and smooth to listen to.", example: "His mellifluous voice made the long story feel short." },
-      { word: "aplomb", pos: "noun", meaning: "Calm confidence, especially in a tricky moment.", example: "She answered the sudden question with quiet aplomb." },
-      { word: "lucid", pos: "adjective", meaning: "Clear and easy to follow.", example: "Her explanation was so lucid that even the beginners nodded along." },
-      { word: "ebullient", pos: "adjective", meaning: "Brimming with cheerful energy.", example: "The ebullient crowd spilled onto the street after the match." },
-      { word: "gossamer", pos: "adjective", meaning: "Light, fine and delicate.", example: "A gossamer layer of frost clung to the window." },
-      { word: "halcyon", pos: "adjective", meaning: "Peaceful and happy, often about a time in the past.", example: "They still talk about those halcyon summers by the lake." },
-      { word: "resilient", pos: "adjective", meaning: "Able to recover quickly from difficulty.", example: "The little shop proved surprisingly resilient that winter." },
-      { word: "amiable", pos: "adjective", meaning: "Friendly and easy to be around.", example: "Our amiable neighbor brought over a plate of warm bread." },
-      { word: "buoyant", pos: "adjective", meaning: "Cheerful, and able to rise or float.", example: "She left the meeting in a buoyant mood." },
-      { word: "candid", pos: "adjective", meaning: "Honest and direct, with nothing hidden.", example: "He gave a candid account of what went wrong." },
-      { word: "eloquent", pos: "adjective", meaning: "Speaking or writing in a moving, graceful way.", example: "Her eloquent toast left half the table misty-eyed." },
-      { word: "fervent", pos: "adjective", meaning: "Showing intense feeling.", example: "He is a fervent believer in second chances." },
-      { word: "gracious", pos: "adjective", meaning: "Warm, kind and polite.", example: "The host was gracious even when the guests arrived late." },
-      { word: "idyllic", pos: "adjective", meaning: "Perfectly peaceful and beautiful.", example: "They rented an idyllic cottage at the edge of the orchard." },
-      { word: "jubilant", pos: "adjective", meaning: "Full of joy and triumph.", example: "Jubilant fans stayed long after the final whistle." },
-      { word: "luminous", pos: "adjective", meaning: "Giving off a soft, steady light.", example: "The screen cast a luminous glow across the dark room." },
-      { word: "mellow", pos: "adjective", meaning: "Soft, relaxed and gentle.", example: "The evening turned mellow as the music slowed." },
-      { word: "nurture", pos: "verb", meaning: "To care for something so that it grows.", example: "Good teachers nurture curiosity more than they test it." },
-      { word: "placid", pos: "adjective", meaning: "Calm and untroubled.", example: "The lake was placid before the wind picked up." },
-      { word: "quell", pos: "verb", meaning: "To quiet or put an end to something.", example: "A kind word can quell a room full of nerves." },
-      { word: "radiant", pos: "adjective", meaning: "Bright and full of happiness.", example: "She came back from the trip looking radiant." },
-      { word: "savor", pos: "verb", meaning: "To enjoy slowly and fully.", example: "Savor the first sip; there is no hurry." },
-      { word: "tranquil", pos: "adjective", meaning: "Quiet and deeply peaceful.", example: "The garden stayed tranquil even in the middle of the city." },
-      { word: "winsome", pos: "adjective", meaning: "Charming in a sweet, open way.", example: "His winsome grin made apologies easy." },
-      { word: "zealous", pos: "adjective", meaning: "Filled with eager enthusiasm.", example: "A zealous reader, she finished two books a week." },
-      { word: "abundant", pos: "adjective", meaning: "Existing in generous amounts.", example: "The market was abundant with late-summer peaches." },
-      { word: "cherish", pos: "verb", meaning: "To hold something dear.", example: "I cherish those handwritten notes." },
-      { word: "ember", pos: "noun", meaning: "A small glowing piece of fire.", example: "One ember was still glowing in the hearth." },
-      { word: "glisten", pos: "verb", meaning: "To shine with reflected light, often when wet.", example: "The leaves glistened after the rain." },
-      { word: "harmony", pos: "noun", meaning: "A pleasing blend of different parts.", example: "There was an easy harmony between the two musicians." },
-      { word: "jovial", pos: "adjective", meaning: "Cheerful and friendly.", example: "A jovial baker handed out samples to everyone." },
-      { word: "kindle", pos: "verb", meaning: "To start a fire, or to spark a feeling.", example: "One good question can kindle a lifelong interest." },
-      { word: "serene", pos: "adjective", meaning: "Calm and untroubled.", example: "She wore a serene expression through the whole delay." },
-      { word: "tender", pos: "adjective", meaning: "Gentle and caring.", example: "He offered a tender word when she needed it most." },
-      { word: "brisk", pos: "adjective", meaning: "Quick and full of energy.", example: "A brisk walk before breakfast clears the head." },
-      { word: "quaint", pos: "adjective", meaning: "Charming because it is pleasantly old-fashioned.", example: "They stayed in a quaint inn with creaking floors." },
-      { word: "humble", pos: "adjective", meaning: "Modest about your own importance.", example: "For someone so accomplished, she is remarkably humble." },
-      { word: "diligent", pos: "adjective", meaning: "Careful and steady in effort.", example: "Diligent practice beats a lucky night." },
-      { word: "fondness", pos: "noun", meaning: "Warm affection for someone or something.", example: "He has a fondness for old bookshops." },
-      { word: "blissful", pos: "adjective", meaning: "Perfectly happy and content.", example: "Sunday mornings here are blissful and slow." },
-      { word: "reverie", pos: "noun", meaning: "A pleasant daydream.", example: "The doorbell pulled her out of a reverie." },
-      { word: "murmur", pos: "noun", meaning: "A soft, low sound.", example: "A murmur of approval moved through the crowd." },
-      { word: "lavish", pos: "adjective", meaning: "Generous or rich in amount.", example: "They laid out a lavish breakfast on the terrace." },
-      { word: "balm", pos: "noun", meaning: "Something that soothes.", example: "A walk by the river is a balm after a long week." },
-      { word: "cordial", pos: "adjective", meaning: "Warm and friendly.", example: "The two rivals managed a cordial handshake." },
-      { word: "serendipity", pos: "noun", meaning: "A happy chance discovery.", example: "Meeting her at the market was pure serendipity." },
-      { word: "ample", pos: "adjective", meaning: "More than enough.", example: "There was ample time to catch the last train." },
-      { word: "wistful", pos: "adjective", meaning: "A little sad with longing, but gentle.", example: "He gave the old house a wistful look." },
-      { word: "zephyr", pos: "noun", meaning: "A soft, gentle breeze.", example: "A zephyr moved through the curtains." },
-      { word: "empathy", pos: "noun", meaning: "The ability to share what someone else feels.", example: "Her empathy made the hard conversation easier." }
-    ];
 
     /* ---------- Small helpers ---------- */
 
@@ -1152,123 +1324,199 @@
       return /^[a-z]/.test(word) ? word.charAt(0).toUpperCase() + word.slice(1) : word;
     }
 
-    function hashString(text) {
-      var hash = 2166136261;
-      for (var i = 0; i < text.length; i += 1) {
-        hash ^= text.charCodeAt(i);
-        hash = Math.imul(hash, 16777619);
-      }
-      return hash >>> 0;
+    /* ---------- Data ---------- */
+
+    function todayEntries(type) {
+      var key = todayKey();
+      return entries.filter(function (entry) {
+        return entry.day === key && (!type || entry.type === type);
+      });
     }
 
-    /* ---------- State ---------- */
-
-    var state = loadState();
-
-    function loadState() {
-      var fallback = { name: "", days: {} };
-      try {
-        var raw = localStorage.getItem(STORAGE_KEY);
-        if (!raw) { return fallback; }
-        var parsed = JSON.parse(raw);
-        if (!parsed || typeof parsed !== "object") { return fallback; }
-        return {
-          name: typeof parsed.name === "string" ? parsed.name : "",
-          days: parsed.days && typeof parsed.days === "object" ? parsed.days : {}
-        };
-      } catch (error) {
-        return fallback;
-      }
-    }
-
-    function saveState() {
-      try {
-        localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
-      } catch (error) {
-        /* Storage can be unavailable; the app keeps working in memory. */
-      }
-    }
-
-    function hasEntries(day) {
-      return Boolean(day && (day.daily || (day.extras && day.extras.length) || (day.learned && day.learned.length)));
-    }
-
-    function pickDailyWord(key) {
-      var recent = {};
-      Object.keys(state.days).forEach(function (otherKey) {
-        var gap = dayDiff(otherKey, key);
-        if (gap < 0 || gap > 6) { return; }
-        var day = state.days[otherKey];
-        if (!day) { return; }
-        if (day.daily && day.daily.word) { recent[day.daily.word] = true; }
-        (day.extras || []).forEach(function (word) { recent[word.word] = true; });
+    function pickWord() {
+      var todayUsed = {};
+      todayEntries().forEach(function (entry) {
+        todayUsed[String(entry.word).toLowerCase()] = true;
       });
 
-      var start = hashString(key) % WORDS.length;
-      for (var i = 0; i < WORDS.length; i += 1) {
-        var candidate = WORDS[(start + i) % WORDS.length];
-        if (!recent[candidate.word]) { return copyWord(candidate); }
-      }
-      return copyWord(WORDS[start]);
-    }
-
-    function pickExtraWord(day) {
       var used = {};
-      if (day.daily) { used[day.daily.word] = true; }
-      day.extras.forEach(function (word) { used[word.word] = true; });
-      day.learned.forEach(function (entry) { used[String(entry.word).toLowerCase()] = true; });
-
-      var today = todayKey();
-      Object.keys(state.days).forEach(function (key) {
-        if (key === today) { return; }
-        if (Math.abs(dayDiff(key, today)) > 14) { return; }
-        var other = state.days[key];
-        if (!other) { return; }
-        if (other.daily && other.daily.word) { used[other.daily.word] = true; }
-        (other.extras || []).forEach(function (word) { used[word.word] = true; });
-        (other.learned || []).forEach(function (entry) { used[String(entry.word).toLowerCase()] = true; });
+      entries.forEach(function (entry) {
+        used[String(entry.word).toLowerCase()] = true;
       });
 
-      var pool = WORDS.filter(function (word) { return !used[word.word]; });
+      var pool = vocabulary.filter(function (word) {
+        return !used[String(word.word).toLowerCase()];
+      });
       if (!pool.length) {
-        pool = WORDS.filter(function (word) {
-          var todayWord = day.daily ? day.daily.word : "";
-          var alreadyShown = day.extras.some(function (extra) { return extra.word === word.word; });
-          return word.word !== todayWord && !alreadyShown;
+        pool = vocabulary.filter(function (word) {
+          return !todayUsed[String(word.word).toLowerCase()];
         });
       }
-      var pick = pool[Math.floor(Math.random() * pool.length)] || WORDS[0];
-      return copyWord(pick);
+      if (!pool.length) { pool = vocabulary.slice(); }
+      return pool.length ? pool[Math.floor(Math.random() * pool.length)] : null;
     }
 
-    function copyWord(word) {
-      return { word: word.word, pos: word.pos, meaning: word.meaning, example: word.example };
-    }
+    function describeDataError(error, fallback) {
+      if (error && error.friendlyMessage) { return error.friendlyMessage; }
 
-    function getDay(key) {
-      var day = state.days[key];
-      if (!day || typeof day !== "object") {
-        day = { daily: null, extras: [], learned: [] };
-        state.days[key] = day;
+      var code = error && error.code;
+      var text = String((error && (error.message || error.details || error.hint)) || "");
+      var lower = text.toLowerCase();
+
+      if (code === "23505" || lower.indexOf("duplicate key") !== -1) {
+        return "That word was already saved for today.";
       }
-      if (!Array.isArray(day.extras)) { day.extras = []; }
-      if (!Array.isArray(day.learned)) { day.learned = []; }
-      if (!day.daily) { day.daily = pickDailyWord(key); }
-      return day;
+      if (code === "42501" || lower.indexOf("row-level security") !== -1) {
+        return "This account isn’t allowed to do that. Try logging in again.";
+      }
+      if (lower.indexOf("jwt") !== -1 || (lower.indexOf("session") !== -1 && lower.indexOf("expired") !== -1)) {
+        return "Your session expired. Please log in again.";
+      }
+      if (lower.indexOf("failed to fetch") !== -1 || lower.indexOf("network") !== -1 || lower.indexOf("load failed") !== -1) {
+        return "Could not reach the server. Check your connection and try again.";
+      }
+      if (lower.indexOf("does not exist") !== -1 || lower.indexOf("schema cache") !== -1) {
+        return "A database table is missing. Run the Supabase setup script, then try again.";
+      }
+      return fallback || "Something went wrong. Please try again.";
+    }
+
+    async function loadWorkspace() {
+      var results = await Promise.all([
+        supabaseClient
+          .from("words")
+          .select("id, word, meaning")
+          .order("word", { ascending: true }),
+        supabaseClient
+          .from("saved_words")
+          .select("id, word, meaning, type, day, created_at")
+          .eq("user_id", currentUserId)
+          .order("created_at", { ascending: true }),
+        supabaseClient
+          .from("profiles")
+          .select("name")
+          .eq("user_id", currentUserId)
+          .maybeSingle()
+      ]);
+
+      results.forEach(function (result) {
+        if (result.error) { throw result.error; }
+      });
+
+      vocabulary = results[0].data || [];
+      entries = results[1].data || [];
+      profileName = (results[2].data && results[2].data.name) || "";
+      currentDay = todayKey();
+    }
+
+    async function reloadEntries() {
+      var result = await supabaseClient
+        .from("saved_words")
+        .select("id, word, meaning, type, day, created_at")
+        .eq("user_id", currentUserId)
+        .order("created_at", { ascending: true });
+
+      if (result.error) { throw result.error; }
+      entries = result.data || [];
+    }
+
+    async function insertSaved(fields) {
+      var result = await supabaseClient
+        .from("saved_words")
+        .insert({
+          user_id: currentUserId,
+          word: fields.word,
+          meaning: fields.meaning || "",
+          type: fields.type,
+          day: fields.day
+        })
+        .select("id, word, meaning, type, day, created_at")
+        .single();
+
+      if (result.error) { throw result.error; }
+      return result.data;
+    }
+
+    async function extraCountToday() {
+      var result = await supabaseClient
+        .from("saved_words")
+        .select("id", { count: "exact", head: true })
+        .eq("user_id", currentUserId)
+        .eq("day", todayKey())
+        .eq("type", "extra");
+
+      if (result.error) { throw result.error; }
+      return result.count || 0;
+    }
+
+    async function ensureDailyWord() {
+      if (todayEntries("daily").length) { return; }
+
+      if (!vocabulary.length) {
+        var empty = new Error("The words table is empty.");
+        empty.friendlyMessage = "Your words table is empty. Add a few words in Supabase, then try again.";
+        throw empty;
+      }
+
+      var pick = pickWord();
+      try {
+        entries.push(await insertSaved({
+          word: pick.word,
+          meaning: pick.meaning,
+          type: "daily",
+          day: todayKey()
+        }));
+      } catch (error) {
+        /* The unique index keeps this to one daily word per day. */
+        if (error && error.code === "23505") {
+          await reloadEntries();
+          return;
+        }
+        throw error;
+      }
+    }
+
+    async function hydrate() {
+      await loadWorkspace();
+      await ensureDailyWord();
+    }
+
+    function showNotice(message) {
+      $("#app-notice-text").textContent = message;
+      $("#app-notice").hidden = false;
+    }
+
+    function hideNotice() {
+      $("#app-notice").hidden = true;
+    }
+
+    function renderAll() {
+      renderToday();
+      renderExtras();
+      renderLearned();
+      renderHistory();
+      renderProfile();
     }
 
     /* ---------- Rendering ---------- */
 
     function renderToday() {
       var now = new Date();
-      var day = getDay(todayKey());
+      var daily = todayEntries("daily")[0];
 
       $("#today-date").textContent =
         WEEKDAYS[now.getDay()] + " · " + now.getDate() + " " + MONTHS[now.getMonth()];
-      $("#daily-pos").textContent = day.daily.pos;
-      $("#daily-word").textContent = capWord(day.daily.word);
-      $("#daily-meaning").textContent = day.daily.meaning;
-      $("#daily-example").textContent = "“" + day.daily.example + "”";
+
+      if (!daily) {
+        $("#daily-word").textContent = "—";
+        $("#daily-meaning").textContent = vocabulary.length
+          ? "Today’s word couldn’t load. Use “Try again” above."
+          : "Add words to your vocabulary list in Supabase to see today’s word.";
+        return;
+      }
+
+      $("#daily-word").textContent = capWord(daily.word);
+      $("#daily-meaning").textContent = daily.meaning || "No meaning added yet.";
     }
 
     function buildRow(options) {
@@ -1294,13 +1542,6 @@
       word.textContent = capWord(options.word);
       top.appendChild(word);
 
-      if (options.pos) {
-        var chip = document.createElement("span");
-        chip.className = "chip";
-        chip.textContent = options.pos;
-        top.appendChild(chip);
-      }
-
       if (options.source) {
         var source = document.createElement("span");
         source.className = "src-tag";
@@ -1319,18 +1560,17 @@
     }
 
     function renderExtras(newIndex) {
-      var day = getDay(todayKey());
+      var extras = todayEntries("extra");
       var list = $("#extra-list");
       var dots = document.querySelectorAll("#extra-dots .dot");
-      var count = day.extras.length;
+      var count = extras.length;
       var button = $("#extra-btn");
       var hint = $("#extra-hint");
 
       list.innerHTML = "";
-      day.extras.forEach(function (word, index) {
+      extras.forEach(function (word, index) {
         list.appendChild(buildRow({
           word: word.word,
-          pos: word.pos,
           meaning: word.meaning,
           badge: index + 1,
           isNew: index === newIndex
@@ -1344,7 +1584,8 @@
       $("#extra-count").textContent = count + " of " + EXTRA_LIMIT;
       $("#extra-progress").setAttribute("aria-valuenow", String(count));
 
-      button.disabled = count >= EXTRA_LIMIT;
+      button.disabled = extraPending || count >= EXTRA_LIMIT;
+      hint.classList.remove("is-error");
       hint.classList.toggle("is-full", count >= EXTRA_LIMIT);
 
       if (count >= EXTRA_LIMIT) {
@@ -1358,50 +1599,33 @@
     }
 
     function renderLearned(newIndex) {
-      var day = getDay(todayKey());
+      var learned = todayEntries("learned");
       var list = $("#learned-list");
 
       list.innerHTML = "";
-      day.learned.forEach(function (entry, index) {
+      learned.forEach(function (entry, index) {
         list.appendChild(buildRow({
           word: entry.word,
-          pos: entry.pos,
           meaning: entry.meaning,
           badge: index + 1,
           isNew: index === newIndex
         }));
       });
 
-      $("#learned-empty").hidden = day.learned.length > 0;
-    }
-
-    function entriesOf(day) {
-      var entries = [];
-      if (day.daily) {
-        entries.push({
-          word: day.daily.word,
-          pos: day.daily.pos,
-          meaning: day.daily.meaning,
-          source: "Word of the day"
-        });
-      }
-      (day.extras || []).forEach(function (word) {
-        entries.push({ word: word.word, pos: word.pos, meaning: word.meaning, source: "Extra word" });
-      });
-      (day.learned || []).forEach(function (word) {
-        entries.push({ word: word.word, pos: word.pos || "", meaning: word.meaning || "", source: "Your word" });
-      });
-      return entries;
+      $("#learned-empty").hidden = learned.length > 0;
     }
 
     function renderHistory() {
       var body = $("#history-body");
       var empty = $("#history-empty");
-      var keys = Object.keys(state.days)
-        .filter(function (key) { return hasEntries(state.days[key]); })
-        .sort()
-        .reverse();
+      var groups = {};
 
+      entries.forEach(function (entry) {
+        if (!groups[entry.day]) { groups[entry.day] = []; }
+        groups[entry.day].push(entry);
+      });
+
+      var keys = Object.keys(groups).sort().reverse();
       body.innerHTML = "";
 
       if (!keys.length) {
@@ -1411,7 +1635,7 @@
       empty.hidden = true;
 
       keys.forEach(function (key) {
-        var entries = entriesOf(state.days[key]);
+        var rows = groups[key];
         var group = document.createElement("section");
         group.className = "day-group";
 
@@ -1428,7 +1652,7 @@
 
         var count = document.createElement("span");
         count.className = "day-count";
-        count.textContent = entries.length + (entries.length === 1 ? " word" : " words");
+        count.textContent = rows.length + (rows.length === 1 ? " word" : " words");
 
         head.appendChild(title);
         head.appendChild(date);
@@ -1436,12 +1660,12 @@
 
         var list = document.createElement("ul");
         list.className = "word-list";
-        entries.forEach(function (entry) {
+        rows.forEach(function (entry) {
           list.appendChild(buildRow({
             word: entry.word,
-            pos: entry.pos,
             meaning: entry.meaning,
-            source: entry.source
+            source: entry.type === "daily" ? "Word of the day" :
+              entry.type === "learned" ? "Your word" : "Extra word"
           }));
         });
 
@@ -1452,25 +1676,23 @@
     }
 
     function totals() {
-      var words = 0;
+      var days = {};
       var own = 0;
-      var days = 0;
 
-      Object.keys(state.days).forEach(function (key) {
-        var day = state.days[key];
-        if (!hasEntries(day)) { return; }
-        days += 1;
-        words += (day.daily ? 1 : 0) + (day.extras || []).length + (day.learned || []).length;
-        own += (day.learned || []).length;
+      entries.forEach(function (entry) {
+        days[entry.day] = true;
+        if (entry.type === "learned") { own += 1; }
       });
 
-      return { words: words, own: own, days: days };
+      return { words: entries.length, own: own, days: Object.keys(days).length };
     }
 
     function closeNameForm() {
       $("#name-form").hidden = true;
       $("#profile-name").hidden = false;
       $("#name-edit").hidden = false;
+      $("#name-status").textContent = "";
+      $("#name-status").classList.remove("is-error");
     }
 
     function openNameForm() {
@@ -1478,7 +1700,9 @@
       $("#name-form").hidden = false;
       $("#profile-name").hidden = true;
       $("#name-edit").hidden = true;
-      input.value = state.name;
+      $("#name-status").textContent = "";
+      $("#name-status").classList.remove("is-error");
+      input.value = profileName;
       input.focus();
       input.select();
     }
@@ -1488,9 +1712,9 @@
 
       closeNameForm();
 
-      $("#profile-name").textContent = state.name || "Add your name";
-      $("#name-edit").textContent = state.name ? "Edit name" : "Add name";
-      $("#avatar").textContent = state.name ? state.name.charAt(0).toUpperCase() : "V";
+      $("#profile-name").textContent = profileName || "Add your name";
+      $("#name-edit").textContent = profileName ? "Edit name" : "Add name";
+      $("#avatar").textContent = profileName ? profileName.charAt(0).toUpperCase() : "V";
       $("#stat-words").textContent = counts.words;
       $("#stat-days").textContent = counts.days;
       $("#stat-own").textContent = counts.own;
@@ -1504,6 +1728,7 @@
     }
 
     function showView(name, options) {
+      if (!currentUserId) { return; }
       var settings = options || {};
 
       Array.prototype.forEach.call(document.querySelectorAll(".view"), function (view) {
@@ -1544,28 +1769,63 @@
       });
 
       window.addEventListener("hashchange", function () {
+        if (!currentUserId) { return; }
         showView(viewFromHash());
       });
     }
 
     function bindExtras() {
-      $("#extra-btn").addEventListener("click", function () {
-        var day = getDay(todayKey());
-        if (day.extras.length >= EXTRA_LIMIT) { return; }
+      var button = $("#extra-btn");
+      var hint = $("#extra-hint");
 
-        var word = pickExtraWord(day);
-        day.extras.push(word);
-        saveState();
+      button.addEventListener("click", async function () {
+        if (!currentUserId || extraPending) { return; }
+        if (todayEntries("extra").length >= EXTRA_LIMIT) { renderExtras(); return; }
 
-        var index = day.extras.length - 1;
-        renderExtras(index);
+        if (!vocabulary.length) {
+          hint.classList.add("is-error");
+          hint.textContent = "No words are available yet. Add words in Supabase, then try again.";
+          return;
+        }
 
-        var hint = $("#extra-hint");
-        if (day.extras.length >= EXTRA_LIMIT) {
-          hint.textContent = "“" + capWord(word.word) + "” added. That’s all five for today.";
-        } else {
-          hint.textContent = "“" + capWord(word.word) + "” added. " +
-            (EXTRA_LIMIT - day.extras.length) + " left today.";
+        extraPending = true;
+        button.disabled = true;
+        hint.classList.remove("is-error", "is-full");
+        hint.textContent = "Finding a word…";
+
+        try {
+          /* Count on the server so a second tab is taken into account. */
+          var count = await extraCountToday();
+          if (count >= EXTRA_LIMIT) {
+            await reloadEntries();
+            renderExtras();
+            hint.classList.add("is-full");
+            hint.textContent = "That’s all five for today. Fresh words tomorrow.";
+            return;
+          }
+
+          var pick = pickWord();
+          var row = await insertSaved({
+            word: pick.word,
+            meaning: pick.meaning,
+            type: "extra",
+            day: todayKey()
+          });
+
+          entries.push(row);
+          renderExtras(todayEntries("extra").length - 1);
+
+          var left = EXTRA_LIMIT - todayEntries("extra").length;
+          hint.textContent = left > 0
+            ? "“" + capWord(row.word) + "” added. " + left + " left today."
+            : "“" + capWord(row.word) + "” added. That’s all five for today.";
+        } catch (error) {
+          hint.classList.remove("is-full");
+          hint.classList.add("is-error");
+          hint.textContent = describeDataError(error, "We couldn’t add a word just now. Please try again.");
+        } finally {
+          extraPending = false;
+          button.disabled = todayEntries("extra").length >= EXTRA_LIMIT;
         }
       });
     }
@@ -1577,48 +1837,67 @@
       var status = $("#learned-status");
       var statusTimer = null;
 
-      function announce(message) {
+      function announce(message, isError) {
         status.textContent = message;
+        status.classList.toggle("is-error", Boolean(isError));
         window.clearTimeout(statusTimer);
-        statusTimer = window.setTimeout(function () { status.textContent = ""; }, 4200);
+        statusTimer = window.setTimeout(function () {
+          status.textContent = "";
+          status.classList.remove("is-error");
+        }, isError ? 6000 : 4200);
       }
 
       wordInput.addEventListener("input", function () {
         status.textContent = "";
+        status.classList.remove("is-error");
         window.clearTimeout(statusTimer);
       });
 
-      form.addEventListener("submit", function (event) {
+      form.addEventListener("submit", async function (event) {
         event.preventDefault();
+        if (!currentUserId) { return; }
 
         var word = wordInput.value.trim().replace(/\s+/g, " ");
         var meaning = meaningInput.value.trim().replace(/\s+/g, " ");
 
         if (!word) {
-          announce("Add a word first.");
+          announce("Add a word first.", true);
           wordInput.focus();
           return;
         }
 
-        var day = getDay(todayKey());
-        day.learned.push({
-          word: (word.toLowerCase() === word ? capWord(word) : word).slice(0, 40),
-          pos: "",
-          meaning: meaning.slice(0, 120)
-        });
-        saveState();
+        var button = form.querySelector('button[type="submit"]');
+        button.disabled = true;
+        announce("Saving…");
 
-        var index = day.learned.length - 1;
-        form.reset();
-        renderLearned(index);
-        announce("“" + capWord(word) + "” added to today’s words.");
-        wordInput.focus();
+        try {
+          var row = await insertSaved({
+            word: (word.toLowerCase() === word ? capWord(word) : word).slice(0, 40),
+            meaning: meaning.slice(0, 120),
+            type: "learned",
+            day: todayKey()
+          });
+
+          entries.push(row);
+          var index = todayEntries("learned").length - 1;
+          form.reset();
+          renderLearned(index);
+          renderProfile();
+          announce("“" + capWord(row.word) + "” added to today’s words.");
+          wordInput.focus();
+        } catch (error) {
+          announce(describeDataError(error, "We couldn’t save that word. Please try again."), true);
+        } finally {
+          button.disabled = false;
+        }
       });
     }
 
     function bindNameForm() {
       var form = $("#name-form");
       var input = $("#name-input");
+      var submit = form.querySelector('button[type="submit"]');
+      var status = $("#name-status");
 
       $("#name-edit").addEventListener("click", openNameForm);
 
@@ -1627,11 +1906,39 @@
         $("#name-edit").focus();
       });
 
-      form.addEventListener("submit", function (event) {
+      form.addEventListener("submit", async function (event) {
         event.preventDefault();
-        state.name = input.value.trim().replace(/\s+/g, " ").slice(0, 32);
-        saveState();
-        renderProfile();
+        if (!currentUserId) { return; }
+
+        var name = input.value.trim().replace(/\s+/g, " ").slice(0, 32);
+        submit.disabled = true;
+        submit.textContent = "Saving…";
+        status.textContent = "";
+        status.classList.remove("is-error");
+
+        try {
+          var result = await supabaseClient
+            .from("profiles")
+            .upsert({ user_id: currentUserId, name: name }, { onConflict: "user_id" })
+            .select("name")
+            .single();
+
+          if (result.error) { throw result.error; }
+
+          profileName = (result.data && result.data.name) || name;
+          renderProfile();
+        } catch (error) {
+          status.textContent = describeDataError(error, "We couldn’t save your name. Please try again.");
+          status.classList.add("is-error");
+        } finally {
+          submit.disabled = false;
+          submit.textContent = "Save";
+        }
+      });
+
+      input.addEventListener("input", function () {
+        status.textContent = "";
+        status.classList.remove("is-error");
       });
 
       input.addEventListener("keydown", function (event) {
@@ -1642,27 +1949,305 @@
       });
     }
 
+    /* ---------- Authentication ---------- */
+
+    function setAuthMessage(message, kind) {
+      var element = $("#auth-message");
+      element.textContent = message || "";
+      element.className = "auth-message" + (kind ? " is-" + kind : "");
+    }
+
+    function setAuthMode(mode) {
+      authMode = mode === "signup" ? "signup" : "login";
+
+      Array.prototype.forEach.call(document.querySelectorAll(".auth-tab"), function (tab) {
+        tab.setAttribute("aria-pressed", tab.dataset.mode === authMode ? "true" : "false");
+      });
+
+      $("#auth-submit").textContent = authMode === "signup" ? "Create account" : "Log in";
+      $("#auth-password").setAttribute("autocomplete", authMode === "signup" ? "new-password" : "current-password");
+      $("#auth-password").placeholder = authMode === "signup" ? "At least 6 characters" : "Your password";
+
+      if (!$("#auth-message").classList.contains("is-config")) {
+        setAuthMessage("");
+      }
+    }
+
+    function setAuthPending(pending) {
+      var submit = $("#auth-submit");
+      submit.disabled = pending;
+      submit.textContent = pending
+        ? (authMode === "signup" ? "Creating account…" : "Logging in…")
+        : (authMode === "signup" ? "Create account" : "Log in");
+    }
+
+    function friendlyAuthError(message) {
+      var text = message || "";
+      var lower = text.toLowerCase();
+
+      if (lower.indexOf("invalid login credentials") !== -1) {
+        return "That email and password don’t match. Please try again.";
+      }
+      if (lower.indexOf("email not confirmed") !== -1) {
+        return "Please confirm your email first. Check your inbox for the link.";
+      }
+      if (lower.indexOf("already registered") !== -1 || lower.indexOf("already exists") !== -1) {
+        return "An account with this email already exists. Try logging in instead.";
+      }
+      if (lower.indexOf("password should be at least") !== -1) {
+        return "Use at least 6 characters for your password.";
+      }
+      if (lower.indexOf("invalid email") !== -1 || lower.indexOf("unable to validate email") !== -1) {
+        return "Please enter a valid email address.";
+      }
+      if (lower.indexOf("failed to fetch") !== -1 || lower.indexOf("network") !== -1) {
+        return "Could not reach Supabase. Check your connection and try again.";
+      }
+      if (lower.indexOf("rate limit") !== -1 || lower.indexOf("too many") !== -1) {
+        return "Too many attempts. Please wait a moment and try again.";
+      }
+      return text || "Something went wrong. Please try again.";
+    }
+
+    function configProblem() {
+      if (!window.supabase || typeof window.supabase.createClient !== "function") {
+        return "The Supabase library could not load. Check your connection, then refresh the page.";
+      }
+      if (!SUPABASE_URL || SUPABASE_URL.indexOf("YOUR_") === 0 ||
+          !SUPABASE_ANON_KEY || SUPABASE_ANON_KEY.indexOf("YOUR_") === 0) {
+        return "Add your Supabase project URL and anon key near the top of the script, then save and refresh.";
+      }
+      return "";
+    }
+
+    function showAuthScreen() {
+      currentUserId = null;
+      entries = [];
+      vocabulary = [];
+      profileName = "";
+      isReady = false;
+      starting = false;
+      extraPending = false;
+      currentDay = "";
+
+      $("#main").hidden = true;
+      $("#main-nav").hidden = true;
+      $("#auth-screen").hidden = false;
+      $("#boot-screen").hidden = true;
+      $("#auth-password").value = "";
+      $("#auth-email").value = lastEmail;
+      $("#profile-status").textContent = "";
+      $("#profile-status").classList.remove("is-error");
+      hideNotice();
+
+      setAuthPending(false);
+      setAuthMode("login");
+      document.title = "VocaBoost · Log in";
+    }
+
+    async function startSession(user) {
+      if (currentUserId === user.id && (isReady || starting)) { return; }
+
+      var userId = user.id;
+      currentUserId = userId;
+      lastEmail = user.email || lastEmail;
+      entries = [];
+      vocabulary = [];
+      profileName = "";
+      isReady = false;
+      starting = true;
+
+      $("#profile-email").textContent = user.email || "Signed in";
+      $("#profile-status").textContent = "";
+      $("#profile-status").classList.remove("is-error");
+      $("#auth-screen").hidden = true;
+      $("#auth-form").reset();
+      setAuthPending(false);
+      $("#boot-screen").hidden = false;
+
+      try {
+        await hydrate();
+        if (currentUserId !== userId) { return; }
+        hideNotice();
+        isReady = true;
+      } catch (error) {
+        if (currentUserId !== userId) { return; }
+        showNotice(describeDataError(error, "We couldn’t load your words just now. Please try again."));
+      } finally {
+        starting = false;
+        if (currentUserId !== userId) { return; }
+
+        $("#boot-screen").hidden = true;
+        $("#main-nav").hidden = false;
+        $("#main").hidden = false;
+
+        renderAll();
+        showView(isReady ? viewFromHash() : "home", { silent: true, noScroll: true });
+      }
+    }
+
+    async function retryWorkspace() {
+      if (!currentUserId || starting) { return; }
+
+      var userId = currentUserId;
+      var button = $("#app-notice-retry");
+      starting = true;
+      button.disabled = true;
+
+      try {
+        await hydrate();
+        if (currentUserId !== userId) { return; }
+        hideNotice();
+        isReady = true;
+        renderAll();
+      } catch (error) {
+        if (currentUserId !== userId) { return; }
+        showNotice(describeDataError(error, "We still couldn’t load your words. Please try again."));
+        renderAll();
+      } finally {
+        starting = false;
+        button.disabled = false;
+      }
+    }
+
+    function handleSession(session) {
+      if (session && session.user) {
+        var user = session.user;
+        /* Let the auth callback release its lock before querying the tables. */
+        window.setTimeout(function () { startSession(user); }, 0);
+      } else {
+        showAuthScreen();
+      }
+    }
+
+    function bindAuth() {
+      var form = $("#auth-form");
+      var email = $("#auth-email");
+      var password = $("#auth-password");
+
+      Array.prototype.forEach.call(document.querySelectorAll(".auth-tab"), function (tab) {
+        tab.addEventListener("click", function () {
+          if (tab.dataset.mode === authMode) { return; }
+          password.value = "";
+          setAuthMode(tab.dataset.mode);
+          email.focus();
+        });
+      });
+
+      [email, password].forEach(function (field) {
+        field.addEventListener("input", function () {
+          if (!$("#auth-message").classList.contains("is-config")) {
+            setAuthMessage("");
+          }
+        });
+      });
+
+      form.addEventListener("submit", async function (event) {
+        event.preventDefault();
+        if (!supabaseClient) { return; }
+
+        var address = email.value.trim();
+        var secret = password.value;
+
+        if (!address || !secret) {
+          setAuthMessage("Enter your email and password.", "error");
+          return;
+        }
+        if (authMode === "signup" && secret.length < 6) {
+          setAuthMessage("Use at least 6 characters for your password.", "error");
+          return;
+        }
+
+        lastEmail = address;
+        setAuthPending(true);
+
+        var submitMode = authMode;
+
+        try {
+          var result = submitMode === "signup"
+            ? await supabaseClient.auth.signUp({ email: address, password: secret })
+            : await supabaseClient.auth.signInWithPassword({ email: address, password: secret });
+
+          if (result.error) {
+            setAuthMessage(friendlyAuthError(result.error.message), "error");
+            return;
+          }
+          if (submitMode === "signup" && (!result.data || !result.data.session)) {
+            setAuthMode("login");
+            setAuthMessage("Check your inbox to confirm your email, then log in.", "ok");
+            password.value = "";
+          }
+        } catch (error) {
+          setAuthMessage(friendlyAuthError(error && error.message), "error");
+        } finally {
+          setAuthPending(false);
+        }
+      });
+    }
+
+    function bindLogout() {
+      $("#logout-btn").addEventListener("click", async function () {
+        if (!supabaseClient) { return; }
+
+        var status = $("#profile-status");
+        var button = $("#logout-btn");
+        button.disabled = true;
+        status.classList.remove("is-error");
+        status.textContent = "Logging out…";
+
+        try {
+          var result = await supabaseClient.auth.signOut();
+          if (result && result.error) { throw result.error; }
+          status.textContent = "";
+        } catch (error) {
+          status.textContent = "We couldn’t log you out. Check your connection and try again.";
+          status.classList.add("is-error");
+        } finally {
+          button.disabled = false;
+        }
+      });
+    }
+
     /* ---------- Start ---------- */
 
-    function init() {
-      getDay(todayKey());
-      saveState();
-
+    function boot() {
+      bindAuth();
       bindNavigation();
       bindExtras();
       bindLearnedForm();
       bindNameForm();
+      bindLogout();
+      $("#app-notice-retry").addEventListener("click", retryWorkspace);
 
-      renderToday();
-      renderExtras();
-      renderLearned();
-      renderHistory();
-      renderProfile();
+      var problem = configProblem();
+      if (problem) {
+        showAuthScreen();
+        setAuthMessage(problem, "config");
+        $("#auth-submit").disabled = true;
+        return;
+      }
 
-      showView(viewFromHash(), { silent: true });
+      supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+      supabaseClient.auth.onAuthStateChange(function (event, session) {
+        handleSession(session);
+      });
+
+      supabaseClient.auth.getSession().then(function (result) {
+        handleSession(result && result.data ? result.data.session : null);
+      }).catch(function () {
+        showAuthScreen();
+        setAuthMessage("We couldn’t restore your session. Please log in again.", "error");
+      });
+
+      /* If the app stays open past midnight, roll over to the new day. */
+      window.setInterval(function () {
+        if (!currentUserId || !isReady || starting) { return; }
+        if (todayKey() !== currentDay) { retryWorkspace(); }
+      }, 60000);
     }
 
-    init();
+    boot();
   })();
   </script>
 </body>
